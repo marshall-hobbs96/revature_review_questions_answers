@@ -208,20 +208,79 @@ a long history, it has a mature developer community, meaning there are many proj
 
 ## Day 4
 * What is var-args?
+	- var-args a parameter we can specifiy in a method that allows us to have a variable number of arguments. Useful for when we want a method that can accept
+	large number of arguments of a certain type. 
 * Can we have multiple var-args parameters for one method?
+	- No, we can only have one var-args parameter for a method. This is because if we have multiple var-arg parameters, the method/compiler won't know when the arguments
+	for one var-args ends and the other ends 
 * Where does the var-args parameter need to go within the parameters?
+	- The var-args should always go at the end of the parameters list. Again, this is to prevent the method/compiler getting confused about where the var-args
+	list ends, and the other parameters begins. 
 * What type of variable is the var-args parameter, reference or primitive?
+	- It is a reference parameter. This is because var-args are necessarily an array type. Array variables are reference variables. 
 * What is the software development lifecycle?
+	- The software development cycle is the steps/phases neccesary for describing the complete life cycle of a specific application or feature. 
 * What are the 7 phases of the software development lifecycle?
+	- Requirments phase 
+		* What needs to be developed? Very conceptual. 
+	- Analysis Phase 
+		* Gathering together technical documents. Ironing out requirments and getting more specific/concrete about what it is we're going to make. 
+		* Software Requirment Specification (SRS) document made. Formally defines software and hardware requirments. 
+	- Design Phase 
+		* Getting even more into the weeds of what were going to design. More design documents made. Psuedocode written. Outline of technical details 
+	- Development Phase 
+		* This is where all the code is actually written. No more planning, just getting it done. 
+	- Testing Phase 
+		* Formal testing occurs here to make sure it meets all requirments set out in the design phase.
+	- Deployment Phase 
+		* Code is actually deployed for use. Can be used by clients/customers/end users at this point 
+	- Maintainence Phase 
+		* Just making sure it continues to run at this point. Solving bugs, ironing out any quirks or missed details. Patches. 
 * What two competing philosophies do we have?
+	- Waterfall and Agile
 * What is waterfall and its characteristics?
+	- Waterfall is a development philosophy for going through the steps of the software development life cycle (SDLC). It essentially focuses on completeing one step 
+	at a time of the SDLC fully, then moving onto the next. It doesn't allow going back to previous steps. 
 * What are the pros and cons of waterfall?
+	- Pros
+		* Good for large organizations where many people are working on a single project at once	
+		* Good when the project requirments will not change after the planning phase 
+		* Good for when you need all your deliverables deployed at once, as opposed to incrementally deployed
+	- Cons 
+		* Not as effective when you have smaller groups/smaller projects
+		* Doesn't allow for going back to previous steps in SDLC, so terrible for projects where requirments might change or change frequently 
+		* Terrible for when a project needs small, iterative development/deployment
 * When might we use waterfall?
+	- Waterfall would benefit from highly regulated and/or government work 
 * What is Agile?
+	- Agile is a competing development philosohphy to waterfall. It essentially allows for going through the SDLC many times, in order to complete smaller
+	parts of the overall project one at a time. 
 * What are the core values of Agile?
+	- Individuals and interactions over processes and tools 
+	- Working software over comprehensive documentation 
+	- Customer collaboration over contract negotiation 
+	- Responding to change over following a plan 
 * What are the 12 principles of Agile?
+	- I think its kind of excessive to remember all 12 of these from memory, so I'm just going to copy past these from the recap notes. 
+	- The highest priority is to satisfy the customer through early and **continuous delivery** of valuable software
+	- Deliver working software frequently, from a couple of weeks to a couple of months, with a preference to the shorter timescale
+	- Working software is the primary measure of progress
+	- Agile processes promote sustainable development. The sponsors, developers, and users should be able to maintain a constant pace indefinitely
+	- Business people and developers MUST work together daily throughout the project
+	- The most efficient and effective method of conveying information to and within a development team is face-to-face conversation
+	- The best architectures, requirements, and designs emerge from self-organizing teams
+	- Build projects around motivated individuals. Give them the environment and support they need and trust them to get the job done.
+	- At regular intervals, the team reflects on how to become more effective, then tunes and adjusts their behavior accordingly
+	- Continuous attention to technical excellence and good design enhances agility
+	- Simplicity, the art of maximizing the amount of work NOT done, is essential
+	- Agile processes harness change for the customer's competitive advantage
 * What are some examples of Agile frameworks/methodologies?
+	- Scrum 
+	- Kanban 
+	- Extreme Programming (XP) 
 * What is Scrum?
+	- Scrum is a concrete implementation of the agile development philosophy. Its describes actionable steps and processes to follow in order to 
+	implement the agile development philosophy. 
 * What is a Sprint?
 * What are the Scrum artifacts?
 * What is a product backlog?
