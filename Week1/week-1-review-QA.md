@@ -48,63 +48,162 @@ a long history, it has a mature developer community, meaning there are many proj
 
 ## Day 2
 * What are classes in Java?
+	- Classes are the basic building block in Java. Everything must be a part of a class. Classes are templates for instantiated objects. They contain
+	variables and methods. 
 * What do classes contain?
+	- Variables and methods. There are any number of nuances associated with how these variables and methods can be accessed. 
 * What are objects / instances of a class?
+	- Objects / instances of a class are the same thing. They are just "real world" objects made from the "blueprint" of a class. For example, if you have a class
+	named Dog, with several variables and methods, you can't really use it until you instantiate an object of the Dog class, such as fido. Ex: Dog fido = new Dog(); 
+	- This ignores the idea of static variables and methods. That's a whole different concept. Lets ignore it for now. 
 * What is the purpose of packages in Java?
+	- The purpose of packages in Java is severalfold. First, it simply allows us to better organize our code. If we can separate groups of similar/related classes into
+	packages, it can make our code easier to read, either for ourselves going back, or to other developers using our code. 
+	- Secondly, it makes our code more portable. If we have all of our classes for a program in one package, it makes it less convenient if we want to use just a few of 
+	the classes inside it. We would have to import the entire package, and therefore have extra classes we wouldn't be using. Better to seperate out related classes into their
+	own packages, that way in the future if we need to use them, we can just import a smaller, more managable package. 
+	- Lastly, it offers a bit of abstraction (which is one of four pillars of OOP or object oriented programming). For example, if we have two different packages we want to import
+	into our project, they can share class names within each package without there being too much trouble. You'll still run into a bit of trouble, but its possible to use the same
+	class name from two different packages. 
 * What is special about the java.lang package included in the Java runtime libraries?
+	- The java.lang package is special because it never needs to be imported. It is always imported into Java programs automatically. It includes many usefull classes
+	such as String
 * What are the primitive types in Java?
+	- There are 8 primitive data types in Java: boolean, byte, char, int, short, long, float, and double
 * Is String a primitive type?
+	- String is not a primitive type. It is a class that is included in the java.lang package. 
 * What are reference types?
+	- Reference types are variables for anything other than a primitive. This is because if a variable is not a primitive, it must necessarily be a class type(reference) variable. 
+	Reference variables point to the location of objects in memory, specifically memory locations in the heap. 
 * How are primitives and references different from each other?
+	- Primitives directly store a value, and are located within the stack in memory. References point to the location in memory on the heap where the object is. 
 * What does it mean when a reference type has a value of null?
+	- If a reference type has a value of null, that means it currently does not point to any location in memory, and therefore has no object associated with it. 
 * What makes an object eligible for garbage collection?
+	- An object is eligible for garbage collection if there are no more reference variables pointing to it. 
 * What is garbage collection?
+	- Garbage collection is the automatic deallocation of memory associated with objects with no more reference to them. This is to prevent memory leaks. It also
+	makes java a bit easier to program, because developers don't need to worry about manual memory management. 
 * What is a constructor and its purpose?
+	- A constructor is a method associated with a class. Its used to initialize the properties of an object of that class type. Constructor methods have the same name
+	as the class it is a constructor for. 
 * What is constructor overloading?
+	- Constructor overloading is the process of creating multiple different constructors with different types and/or number of parameters. This allows us flexibility in 
+	how we initialize objects of a class. 
 * What is constructor chaining?
+	- Constructor chaining is the process of using one constructor of a class in another. This primarily serves to make our code cleaner and more organized. We could write
+	several different constructors that build on each other, and we could just copy paste the code from the simpler constructors into the more complex ones. Or we could just
+	call the simpler constructors inside the more complex ones, and then add on whatever additional functionality we want. 
 * What are the two uses of the `this` keyword?
+	- The `this` keyword is used for referencing the current object. Thats really its only use. I suppose you could use it in constructors to references the object being constructed
+	and you could use it in methods as well to reference the current object calling the method, but thats really the same thing. Your just referencing the current object. 
 * In terms of memory management, what is the stack and heap?
+	- The stack is where method information is stored. This includes data like variables. The heap is where objects are stored. 
 * What are methods?
+	- Methods are chunks of code associated with classes and/or objects that perform certain functions. 
 * What are arguments v. parameters?
+	- Parameters are what you use when you write methods. They are stand ins for what you will eventually pass to the method when you use it.
+	Arguments are what you actually pass to the method when you use it. 
 * What does method return type mean?
+	- Method return type is the type of of what the method will return when it finishes. For example, when a method return type is int, it will return an int type when it completes. 
 * What is the purpose of the `static` keyword?
+	- The static keyword is used to denote a variable or method as belonging to the class itself, as opposed to belonging to any individual objects. 
 * What can we use the `static` keyword with in Java?
+	- We can use the static keyword with any variables or methods in a class. 
 * How can I access a static variable?
+	- You can access a static variable from the class name itself, or from any object of that class. 
 * How do I invoke a static method?
+	- You can invoke a static method either from the classname itself, or from any object of that class. 
 * What are instance variables?
+	- Instance variables are variables that belong to an object, as opposed to the class. 
 * Can a static method access an instance variable directly?
+	- No
 * Can an instance method access an instance variable directly?
+	- Yes
 * What are the variable scopes in Java?
+	- Class (static) scope. 
+	- Method scope
+	- Instance scope
+	- Block scope 
 ---
 
 ## Day 3
 * What is Git?
+	- Git is a version control software. Its a powerful tool for maintaining software, especially in collaborative enviroments. 
 * What is a local git repository?
+	- A local git repository is a local storage of code. I.e. a place where you've stored code on your own computer, and are running git inside of. Can be linked to a remote repository 
 * What is a remote git repository?
+	- A remote git repository is a remote storeage of code. Github is a popular place to host remote git repositories. 
 * What is the difference between Git and Github?
+	- Git is a version control software. Github is a place for (mostly) hosting remote git repositories. 
 * What are some of the other popular repository hosting websites besides Github?
+	- Gitlab is one I think. Are they really even relevant? 
 * What is the purpose of configuring the SSH keys for Github and Git Bash?
+	- So that git/github can verify your identity. Github especially doesn't like anonymous people pushing to repositories. 
 * Whenever we make changes to files or add/remove files from our local repository, what commands are needed to actually upload these changes to the remote repository?
+	- git init (initialize local git repository) 
+	- git add filename (or just `.` instead of file name, if you want to add all the files in the current directory)
+	- git commit -m "message for the commit" 
+	- git push origin main (assuming you've already set that up) 
 * What arithmetic operators are there?
+	- +, -, *, /, % 
 * What is numeric promotion?
+	- The automatic casting of one, smaller numeric type, to another larger one. For example, float i = 2; i is a float, but 2 is an int type. So 2 is automatically
+	cast to a float type or "promoted" to a float type. 
 * What are the assignment operators?
+	- really theres just `=`. Every other assignment operator is really just a short hand combination, such as `+=`, `-=`, etc. 
 * What are the comparison operators?
+	- ==, != , <, >, >=, <=
 * What are the logical operators?
+	- !, &, &&, |, ||
 * What does short-circuiting mean with the logical operators? Which are the short-circuiting operators?
+	- Short circuiting means that, if the lefthand side of the logical comparison is determinate, it wont evaluate the right hand side. 
+	- For example, if we have true || false, this wont even evaluate the right hand side, because the left hand side will always make || (or) true. 
+	- || and  && are the short circuiting versions of `or` and `and`
 * What two high level types of casting are there?
+	- Downcasting (casting a parent class type to a child type variable, dangerous)
+	- upcasting (casting a child class type to a parent type variable)
 * Why does a narrowing conversion need to be explicit?
+	- Narrowing needs to be explicit because, for example, if we go from a 64 bit numeric to a 32 bit numeric type, then we will necessarily loose some data. 
+	If that data is empty, then its fine, but if that data was being used to store the value, then the value of our variable will change when we narrow it. 
+	This is why narrowing is dangerous, because it has the potential to change the value of our variables without us intending it. 
 * Why does a widening conversion not need to be explicit?
+	- Because going from a 32 bit datatype to a 64 bit datatype wont destroy any data, only create it. 
 * What is the difference between upcasting and downcasting?
+	- Downcasting (casting a parent class type to a child type variable, dangerous)
+	- upcasting (casting a child class type to a parent type variable)
 * What is an example of downcasting?
+	- If we have two classes, one called Parent and one called Child, and Child is a child class of Parent. Then an example of downcasting would be...
+	Child child = new (Child)Parent(); 
 * Why does downcasting need to be explicit?
+	- Downcasting needs to be explicit because it can be dangerous. 
+	- It can be dangerous because child classes generally have additional datamembers that parent classes do not. This can cause many problems. 
 * What datatypes can a switch statement use?
+	- byte, int, short, String, enum 
 * What is the difference between a while loop and do-while loop?
+	- a do-while loop will always execute once before checking the loop condition. A regular while loop will always check the condition first before starting the loop. 
 * Write a for loop that prints numbers from 0 to 100 (inclusive), increasing
+	- for(int i = 0; i<= 100; i++) {
+	
+		System.out.print(i + " "); 
+	
+	}
 * Write a while loop that prints numbers from 500 to 250 (inclusive), decreasing
+	- int i = 500; 
+	while(i >= 250) {
+	
+		System.out.print(i + " "); 
+		i--; 
+	
+	}
 * Can arrays change in size?
+	- No, they are fixed size 
 * What is the syntax to instantiate an array?
+	- int[] array = new int[5]; << = the `5` can be any number you want really 
 * How are object arrays different than primitive arrays in memory?
+	- Primitive arrays have an array with the actual primitive values stored in it. Reference arrays have arrays of references stored in it that point to the actual objects. 
 * What is the for-each loop (enhanced for loop)?
+	- the enhanced for loop is a shortcut that allows one to write a for loop that will iterate over all elements of a type in a collection. 
 ---
 
 ## Day 4
