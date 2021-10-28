@@ -2,16 +2,48 @@
 
 ## Day 1
 * What is Java?
-- Java is a modern programming language with an over 20 year history. According to [Wikipedia](https://en.wikipedia.org/wiki/Java_(programming_language)), 
-"Java is a high-level, class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible."
+	- Java is a modern programming language with an over 20 year history. According to [Wikipedia](https://en.wikipedia.org/wiki/Java_(programming_language)), 
+"Java is a high-level, class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible." Because Java had such
+a long history, it has a mature developer community, meaning there are many projects and dependencies we can lean on when we're developing our own projects. 
 * What are the benefits of Java?
+	- High-level programming language
+		* This means that Java is easier for humans to understand. High level programming languages allow us to code more efficiently by hiding the process of turning 
+		it into machine code (or byte code, then machine code, in Java's case). Its easier to understand high level programming languages in contrast to low (or lower) level programming
+		languages, such as the different types of [assembly languages](https://en.wikipedia.org/wiki/Assembly_language).
+	- Object-oriented (Class-based)
+		* Objected-oriented programming is the idea that all pieces of code should be associated with classes and objects. Everything in Java must be associated with a class. Even the main function is actually a part of a class. 
+		This allows us to better organize and follow the 4 pillars of object oriented programming. 
+	- Write once, run anywhere
+		* One of the things that make Java truely stand out is that when you write and compile a Java program, you can then deploy it to any device that has the Java runtime enviroment installed on it.
 * What is the difference between the JDK, JRE, and JVM?
+	- JDK
+		* JDK stands for Java development kit. In addition to the JRE and JVM, it also includes a compiler so that written Java code can be compiled into Java bytecode, which can then be executed on the JVM
+	- JRE
+		* JRE stands for Java runtime enviroment. This includes all the standard libraries included in java (java.lang package). The JRE is technically separate from the JVM, but they're always bundled together (JVM is a part of the JRE), as you 
+		need both to run a java program (assuming its been compiled into java bytecode already). Classes like String are included in java.lang, which is part of the JRE
+	- JVM	
+		* JVM stands for Java Virtual Machine. This is the part of Java that actually runs the compiled java bytecode. See [Virtual Machines](https://en.wikipedia.org/wiki/Virtual_machine) if you wanna climb down that rabbithole.
 * In order to run a Java program, what needs to happen first?
+	- End user perspective 
+		* Have the JRE installed on your computer along with the java program you want to run (should already be compiled and packaged for end users). Run the java program with the JRE.
+	- Developer perspective	
+		* Write the program. Compile and package it with JDK. Run it with JRE + JVM.  
 * What is the significance of the main method?
+	- The main method is the entrypoint for any program. It is what ties together any associated classes, packages, etc. If we think of our program as a car, the main method if the frame for the car that everything else goes in.
+	If we want to get technical, the main method is the method that occupies the bottom of the stack. If you don't understand what that means, its fine for now. It will make more sense as you learn about what the stack is. [technically call stack] (https://en.wikipedia.org/wiki/Call_stack)
 * What is an IDE?
+	- IDE stands for integrated design enviroment. It is a program that allows for the programming, debugging, and running of programs within it. It is a very useful tool for development, because it automates what would otherwise
+	be the tedious task of compiling, packaging, running and finding a way to debug a program ourselves. Aside from this, it also provides many other tools, such as project management tools. Overall, they (should) makes our lives easier.  
 * What naming conventions does Java utilize?
+	- Projects: snake case, nouns, undercase. Example: this-is-an-example
+	- Packages: reverse domain name of company, then the package name. Example: com.revature.packagename
+	- Classes: Camelcase, nouns, all first letters in a word capitalized. Example: ThisIsAClass
+	- Methods: Camelcase, verbs, first word lowercase, capitalize first letter of each subsequent word. Example: thisIsAMethod
+	- variables: CamelCase, nouns, first word lowercase, capitalize first letter of each subsequent word. Example: aVariable
 * How can I write a Java application without an IDE such as Spring Tool Suite?
+	- Easy. You just open a text editor and start typing. And hope you don't make any syntax errors. Should've asked how to compile and run it though....(javac on .java file. Java on the .class files. Good luck packaging it all)
 * What is Bash?
+	- A command line interface. More powerful alternative to the OS GUI, if you know how to use it. 
 ---
 
 ## Day 2
