@@ -282,46 +282,135 @@ a long history, it has a mature developer community, meaning there are many proj
 	- Scrum is a concrete implementation of the agile development philosophy. Its describes actionable steps and processes to follow in order to 
 	implement the agile development philosophy. 
 * What is a Sprint?
+	- A sprint is essentially a self contained iteration through the SDLC for a subfeature or set of subfeatures of the overall project. Its intended to 
+	allow a development group to be able to completely deploy working code for a piece of the overall project at the end of the sprint. Sprints typically 
+	last anywhere from 1 to 3 weeks. 
 * What are the Scrum artifacts?
+	- Scrum artifacts are documents to assist in the scrum development process. They provide a framework, reference, and anchor for developers to use in order 
+	to remain on task during a sprint. They allows developers to know what they need to work on, and the criteria to know if they've actually completed it. 
 * What is a product backlog?
+	- The product backlog is a list of features that needs to be completed for the project. Ideally, it is constantly changing and having new features added
+	to it. 
 * Who is in charge of managing the product backlog?
+	- The "product owner", which is typically just a project manager
 * What is the Sprint backlog?
+	- A sprint backlog is a document that contains all of the features that need to be worked on/implemented during a sprint. Once a sprint starts, only the development
+	team can add items. However, they must negotiate with the product owner to remove items. 
 * How is it decided what items/user stories are included in the Sprint backlog?
+	- Its typically decided by the product owner and the scrum master, potentially with input from the rest of the development team. Its typically decided by what is believed can 
+	be accomplished by the development team during a sprint. It also includes features from previous sprints that may not have been fully completed. 
 * What is a usable product increment?
+	- This is what you have at the end of the sprint. It is essentially a completed feature or set of features that would ***ideally*** be deployable. 
 * What are user stories?
+	- User stories are descriptions of features of a project from the perspective of the end-user. These are the way that the features to be implemented in the product 
+	and sprint backlog are described. 
 * What is "Acceptance Criteria"?
+	- Acceptance criteria is a description of what would make a feature that is being developed "done" from the perspective of the user. Essentially it asks, can this 
+	feature let a user do x, y, and z? If so, then we can consider that feature complete. 
 * What is the "Definition of Done"?
+	- The "Definition of Done" is how a scrum team determines if a feature is truly completed. It generally includes passing the acceptance criteria, along with other criteria
+	such as passing testing and/or quality assurance. 
 * What is "Story Pointing"?
+	- Story pointing is assigning a difficulty value of some kind to describe how hard it would be to complete a certain user story. In contrast to simply saying "I think this
+	will take 2 weeks to complete" you would say something like, "This an avengers level threat". Actually thats probably a bad example. It would be better to give it levels, 
+	like this is a level 40 monster (user story) to describe something that is fairly difficult, or a level 5 monster (user story) if its fairly trivial. 
 * What is a burndown chart?
+	- A burndown chart is just a chart that allows the scrum team to visually represent the progress being made on a sprint backlog visually. Its graphs the number of user stories
+	left to complete on the y axis, and time on the x axis. 
 * What Scrum roles are there?
+	- Scrum master 
+		* person that is responsible for leading the team through the scrum process. Essentially a team lead that makes sure the scrum process is being followed appropriatly. 
+	- Product owner 
+		* Person who is responsible for deciding what features are to be listed in the product backlog. Essentially a project lead. Serves as point of contact between dev team and client
+	- Development team 
+		* people who are responsible for actually writing the code and what not. 
 * What is the role of a Scrum Master?
+	- Oversee the scrum process. Help maintain sprint backlog. 
 * What is the role of the product owner?
+	- Serve as point of contact between client and dev team. Maintain product backlog
 * How large should a Scrum team be?
+	- No bigger than 10 people
 * What Scrum ceremonies are there?
+	- Sprint planning meeting
+	- Daily standup meeting 
+	- Sprint review meeting 
+	- Sprint retrospective 
 * What questions should be answered by each team member during the daily standup meeting?
+	- What did you do yesterday? 
+	- What will you do today? 
+	- What issues/blockers have you run into? 
 * What is the difference between the Sprint Review and Sprint Retrospective meeting?
+	- The sprint review is more for reviewing the outcome of the sprint, while the retrospective is more for analyzing what could be improved for the next sprint.
 * What is the purpose of the Java 8 Documentation? What is it actually documenting?
+	- The purpose of the Java 8 Documentation is to provide information on all the different classes, their data members, associated methods, and how they are intended
+	to be used. It is to help developers more effectivly use and understand the java standard library. 
 * What is the String pool?
+	- The string pool is a special part of the heap where String literals that have been instantiated are stored. Its intented to help save memory. It does this by 
+	limiting each unique String to having one String object in the String Pool. For example, if you has String a = "Hello"; and String b = "Hello", both `a` and `b` would
+	point to the same String object "Hello" in the String Pool, saving a bit of memory. String objects instantiated with the new keyword, as in String c = new String(), are
+	kept in the regular part of the heap, so you can have several String objects with the same value this way. 
 * What are some common String methods?
+	- .concat(String s); .length(); .charAt(int index); 
 * What is Maven?
+	- Maven is a dependency and build manager. Its useful because it makes adding dependencies into our project simple: we just need to know what the project information is, such as 
+	repository location, project name, project organization, etc. It also makes it much easier to deploy our software, because it will handle compiling and packaging our software for 
+	us. 
 * How do we include dependencies / external libraries into a Maven project?
+	- We can include dependencies/external libraries into our maven projects by editing the pom.xml file in our maven projects. In this file we add the information (Maven coordinates)
+	for whateve dependency we want to add. 
 * What is the purpose of the pom.xml file?
+	- The purpose of the pom.xml file is to configure our maven project. It allows us to edit information directly relating to our project, such as our version number, organization ID, and 
+	project name. It also allows us to add/specify dependencies associated with our project. 
 * What are the Maven project coordinates?
+	- Information that allows for the unique identification of projects. Includes information such as group-id, artifact-id (project name), version, and packaging information. 
 * What is Javalin?
-* What are the three layers in three-tiered architecture?
+	- Javalin is a web framework for Java. It allows us to create web servers with Java.
+* What are the three layers in three-tiered architecture? [multitiered architecture] (https://en.wikipedia.org/wiki/Multitier_architecture)
+	- Controller layer 
+	- Service layer 
+	- Data access layer
 * What is the purpose of the controller layer?
+	- The purpose of the controller layer is to handle requests sent to the webserver. It then passes these requests on to the service layer for actual data processing. 
 * What is the purpose of the service layer?
+	- The purpose of the service layer is to actual perform operations on the data received from http requests. After the controller layer passes the relevant information on to
+	this layer, we then perform the desired operations. If we do not require to access our database (if we have one), then we can return directly from this layer back to the service
+	layer, and then on to the client. 
 * What is the purpose of the data access layer?
+	- The purpose of the data access layer is to interact with our database (if we have one). It would perform operations such as getting information, setting information, etc. 
 ---
 
 ## Day 5
 * What three primary actions does a web browser perform?
+	- Render HTML/CSS
+	- Execute JavaScript code
+	- send HTTP requests and receive HTTP responses. 
 * What is HTML?
+	- Stands for [Hyper Text Markup Language] (https://en.wikipedia.org/wiki/HTML). This is a language that allows for webbrowsers to display webpages. 
 * With regards to HTML, what is an attribute?
+	- An attribute is a variable associated with an element. If we think in terms of Java, it would be a data member associated with an object. The attribute is akin to the variable. 
 * What is the difference between HTML, CSS, and JavaScript?
+	- HTML: Hyper Text Markup Language. CSS is Casecading Style Sheets. CSS is used for editing the styling of entire websites at a time. They allow you to edit the style of all linked
+	HTML webpages at once, that way its more convenient and consistent than trying to change each individual HTML page's styling. JavaScript is a programming language used to code in dynamic 
+	behavior into webpages. HTML and CSS provide no way to actually program in behavior to website, so JavaScript fills in that gap. 
 * Where would we store our frontend files if we wanted to host them from our Javalin-based application?
+	- In our resources folder. 
 * What is Selenium?
+	- Selenium is a webdriver/web automation interface. It allows us to automate behaviors on webpages. Typically used for automating the testing of website, it also has other uses, such as setting
+	up bots to scalp graphics cards as soon as they go on sale. This is lucrative, if controversial, as many leading experts consider graphics cards to now be worth more than gold. 
 * How do we set up Selenium in order to go to Google.com?
+	- Once we set up our WebDriver object from selenium's Java package, we can get set a specific URL for it to go to. In this case it would be "https://www.google.com/"
 * What Selenium locators do we have?
+	- "Easy" locators 
+		* name	
+		* id	
+		* class 
+		* link text
+		* partial link text
+		* tag name
+	- "Hard" locators 
+		* XPath 
+		* CSS 
 * What method in Selenium allows us to type text into an element?
+	- .sendKeys(String s); function
 * What method in Selenium allows us to click an element?
+	- .click()
