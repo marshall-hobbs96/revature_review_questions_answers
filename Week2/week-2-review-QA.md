@@ -134,21 +134,46 @@
 	- To denote a datamember or method as belonging to the class itself. This means that these datamembers and/or methods can be accessed from the class name, instead of having to instantiate an object from that class in order to access them.
 	Useful for classes that are intended to just house useful functions, such as Math classes. 
 * What can the final keyword be used with?
+	- The final keyword can be used with Classes, Variables, and Methods. 
+		* Classes: Denotes that no child classes can be made from this class
+		* Variables: Denotes that this variable's instantiated value is the only value it can have. Value cannot be changed.
+		* Methods: Denotes that a method cannot be overridden in child classes. 
 * If I make a variable final, what does that mean?
+	- It means that the variable's value cannot change. 
 * If a class is final, what does that mean?
+	- It means that the class cannot be extended (no child classes can be derives from this class). 
 * If a method is final, what does that mean?
+	- It means that the method cannot be overridden by derived (child) classes. 
 * Is it possible for a class to extend multiple classes?
+	- No...kinda. Not directly. You can't do something like Dog extends Animal, OtherClass {}. But if Animal extends OtherClass, you can still do Dog extends Animal. Not really extending two classes, but also kinda is. You can have grandparents, but 
+	you can't have two parents. Classes have asexual reproduction (if thats an appropriate analogy for me to make) 
 * Is it possible for a class to implement multiple interfaces?
+	- Yes. You could hypothetically implement as many interfaces as you like. 
 * In what version of Java was the `default` keyword introduced for interfaces, and what is the purpose of the default keyword?
+	- Java 8. The purpose of the default keyword is to provide a default implementation of a method without having to make the method abstract. This is because before this addition, if you wanted to update an interface with new methods, 
+	all classes that implemented that interface would break if they didn't update with an implementation of that new method. So default was added so that this wouldn't happen and a default behavior would occur if developers didnt update 
+	their implementing classes. 
 * If I declare a non-static method inside an interface, what implicit modifiers does it have?
+	- public and abstract
 * If I declare a variable inside an interface, what implicit modifiers does it have?
+	- public, static, and final 
 ---
 ## Day 3
 
 * What are wrapper classes?
+	- Wrapper classes are classes that "wrap up" primitives. They are useful for essentially turning primitive types into reference types. This is useful because in order to modify a primitive in a method, we must pass it by reference instead of by value.
+	Turning a primitive into a reference type allows us to do this. Additionally, many datastructures only accept objects and not primitives. 
 * Why do we need wrapper classes?
+	- In order to change primitive types to object types. See answer above for why this is useful. 
 * What is autoboxing/unboxing?
+	- autoboxing: Changing a primitive type into its associated wrapper class type. Done automatically for many methods. 
+	- unboxing: retrieving the primitive type from its wrapper object. 
 * What is the Collections API?
+	- The collections API is the whole of the interfaces and classes that make up the standard datastructures within Java. 
 * What is the Collections API hierarchy of interfaces and classes?
+	- I don't understand how this is a different question that the one above tbh. Do you want me to list all of them? That seems like a chore. [I'm just going to link a picture] (https://facingissuesonitcom.files.wordpress.com/2019/07/java-collection-framework-hierarchy.jpg?w=1920)
 * Can Collections such as a List contain primitives or only objects?
+	- They can only store object. However, if those objects are just wrapper objects, then collections can (indirectly) store primitives. 
 * What do we mainly use generics with?
+	- Generics are used mostly with methods. Its used to create multiple different methods at once. Basically, if you want a print method for a collection, but you don't want to write a whole new method for each type of object the collection could have
+	you write a generic method so that no matter what the actual type of objects the collection is storing, it will have the same behavior. 
