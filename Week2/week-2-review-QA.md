@@ -27,6 +27,8 @@
 	 - Yes. This is called upcasting. It is safe and implicit. See [week 1 review on upcasting and downcasting] (https://github.com/marshall-hobbs96/revature_review_questions_answers/blob/main/Week1/week-1-review-QA.md) 
 * If a method is first defined in the Dog class (not overridden from the Animal class), can we invoke that method from an Animal reference variable? If not, what do we need to do with that Animal reference variable? (hint: starts with down)
 	- We can't if the variable has been assigned an animal object. However, if we upcast a dog object into the animal reference variable, we would be able to because the object it refers to is now Dog object.
+	- Example: So if we have a method thats only defined in Dog called bark(), and we do Animal a1 = new Animal(), we cant call bark from a1: a1.bark() wouldnt work, because Animal doesn't have that function. but if we do a1 = new Dog();
+	we should be able to call a1.bark() now because a1 now points to a Dog object, and that object has access to the bark method
 * What is special about the Object class? 
 	- The object class is the most base class there is. Every class is either a child of the Object class, or grandchildren, or great grandchildren, etc. The object class includes some basic methods which include equals(), hashCode(), and toString(); 
 	Its important to override these in child classes because otherwise they may not behave in an ideal way. 
@@ -79,18 +81,25 @@
 	- encapsulation
 	- polymorphism
 	- abstraction
-* What is inheritance?
+* What is [inheritance](https://en.wikipedia.org/wiki/Inheritance_(object-oriented_programming))?
 	- Inheritance is the concept of being able to create derived (child) classes from base (parent) classes. The derived classes ***inherit*** all the properties of the base class. You would then add additional behaviors to the child
 	class to make it distinct from the parent class. 
-* What is polymorphism?
+* What is [polymorphism](https://en.wikipedia.org/wiki/Polymorphism_(computer_science))?
 	- polymorphism is the concept of the same method being able to display many distinct behaviors based upon what class/object calls it and/or what arguments are passed to it. For example, the function toString(), which is present
 	in every class (because all classes are derived from the Object class), displays distinct behavior depending on which types call it. the toString() function is display polymorphic behaviors here. 
 * Is method overloading compile-time or runtime polymorphism, and why?
 	- Method ***overloading*** is compile-time polymorphism. This is because the compiler is able to tell what the execution path would be and can convert that into byte-code instructions. 
 * Is method overriding compile-time or runtime polymorphism, and why?
 	- Method ***overriding*** is run-time polymorphism. This is because the JVM needs to check what the type of object is actually being pointed to. 
-* What is encapsulation?
-* What is abstraction?
+* What is [encapsulation](https://en.wikipedia.org/wiki/Encapsulation_(computer_programming))?
+	- Encapsulation is the idea of wrapping up all the datamembers and methods of a class into one coherent unit by restricting outside access to those datamembers and methods. This is so that developers who are using this class only use it
+	in the way intended. Essentially, if a developer doesn't need to access certain datamembers or methods (i.e. they are only used internally), then they should be restricted from doing so. 
+	- I think a good example is a vending machine. If you want something from a vending machine, you only have access to the coin slot and the buttons to select what snack you want. All the other internal workings of the machine are
+	inaccessible to you, because you have no reason to access them when you are using the vending machine as intended. 
+* What is [abstraction](https://en.wikipedia.org/wiki/Abstraction_(computer_science))?
+	- The idea of representing complex ideas or concepts as types/classes.
+	- For example, a real world car is a very complex piece of engineering that is capable of doing many many different actions, many of which are probably not intended by the engineers. We can abstract this real world object and 
+	represent it in our code by discards all the unncessary details we aren't concerned with and focusing instead 
 * What is a Java bean?
 * What are getters and setters?
 * What access modifier should I generally be using to achieve encapsulation?
