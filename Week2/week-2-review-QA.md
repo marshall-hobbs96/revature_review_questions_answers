@@ -26,9 +26,26 @@
 * If Dog extends Animal, can you use an Animal reference variable to point to a Dog object?
 	 - Yes. This is called upcasting. It is safe and implicit. See [week 1 review on upcasting and downcasting] (https://github.com/marshall-hobbs96/revature_review_questions_answers/blob/main/Week1/week-1-review-QA.md) 
 * If a method is first defined in the Dog class (not overridden from the Animal class), can we invoke that method from an Animal reference variable? If not, what do we need to do with that Animal reference variable? (hint: starts with down)
-	- We can't if the variable has been assigned an animal object. However, if we upcast a dog object into the animal reference variable, we would be able to because the object it refers to is now Dog object.
-	- Example: So if we have a method thats only defined in Dog called bark(), and we do Animal a1 = new Animal(), we cant call bark from a1: a1.bark() wouldnt work, because Animal doesn't have that function. but if we do a1 = new Dog();
-	we should be able to call a1.bark() now because a1 now points to a Dog object, and that object has access to the bark method
+	- We can't call the method from an animal reference variable. The only way we can call the method is if we downcast the animal variable to a dog variable first (assuming the animal variable pointed to a dog object in the first place), 
+	then we can call the method. 
+	
+	```
+	
+	Animal a1 = new Dog(); 
+	a1.Bark(); //wouldn't work if Bark is only defined in Dog class
+	
+	((Dog) a1).bark() //This WOULD work, because we're casting the Animal reference variable to a Dog variable. But we also must have a1 pointing to a real Dog object as well. 
+	// even if we cast a1 to a Dog reference variable, if a1 doesn't actually point to a Dog object, it will still fail.
+
+	Dog d1 = (Dog) a1; //This would work as well. Even though both a1 and d1 point to the same object, only d1 can call methods only defined in Dog class, because it is a Dog reference variable.
+	
+	//In summary: 
+		//Can't called methods that aren't associated with the variable type. Unless two criteria are met:
+			//The reference variable points to an object of the type that DOES have that method
+			//The reference variable is cast to that type 
+	
+	
+	```
 * What is special about the Object class? 
 	- The object class is the most base class there is. Every class is either a child of the Object class, or grandchildren, or great grandchildren, etc. The object class includes some basic methods which include equals(), hashCode(), and toString(); 
 	Its important to override these in child classes because otherwise they may not behave in an ideal way. 
@@ -99,11 +116,23 @@
 * What is [abstraction](https://en.wikipedia.org/wiki/Abstraction_(computer_science))?
 	- The idea of representing complex ideas or concepts as types/classes.
 	- For example, a real world car is a very complex piece of engineering that is capable of doing many many different actions, many of which are probably not intended by the engineers. We can abstract this real world object and 
-	represent it in our code by discards all the unncessary details we aren't concerned with and focusing instead 
+	represent it in our code by discards all the unncessary details we aren't concerned with and focusing instead just the functions and properties that we are concerned with in the scope of our program. 
 * What is a Java bean?
+	- A java bean is just a class that meets certain criteria set out by the oracle foundation (Company that created and maintains Java). 
+		1. All properties are private. The class must use getter and setter functions for access to all properties. For example, if an class has a datamember int value;, you couldn't do class.value because it would use a private keyword.
+		You would have to create a getter function called getValue(), which would return the value. It's kinda just an extra step to meet this standard that oracle set out. It's important to follow though if you ever intend for this class
+		to be used by other developers, because lots of libraries depend on this standard to function properly. 
+		2. A public no-args constructor. This is fairly straight forward, and if you ask me all classes should have something like this anyways, even if you don't intend for it to be a JavaBean. 
+		3. Implements [Serializable] (https://docs.oracle.com/javase/8/docs/api/java/io/Serializable.html). This interface basically ensures that a class can be serialized into streams. This is a fancy way of saying that it follows the standards
+		that are necessary to be able to write this class type into external files, databases, etc. 
 * What are getters and setters?
+	- getter: A method that returns the value of a datamember within a class. Thats it, thats all it does. Should only be one line of code inside the method. 
+	- setter: same thing, but for assigning a new value to the datamember, instead of returning it. 
 * What access modifier should I generally be using to achieve encapsulation?
+	- Private. This makes it so a datamember or method is only accessible from within the same class. A textbook example of encapsulation. 
 * What is the purpose of the static keyword?
+	- To denote a datamember or method as belonging to the class itself. This means that these datamembers and/or methods can be accessed from the class name, instead of having to instantiate an object from that class in order to access them.
+	Useful for classes that are intended to just house useful functions, such as Math classes. 
 * What can the final keyword be used with?
 * If I make a variable final, what does that mean?
 * If a class is final, what does that mean?
