@@ -26,24 +26,69 @@
 * If Dog extends Animal, can you use an Animal reference variable to point to a Dog object?
 	 - Yes. This is called upcasting. It is safe and implicit. See [week 1 review on upcasting and downcasting] (https://github.com/marshall-hobbs96/revature_review_questions_answers/blob/main/Week1/week-1-review-QA.md) 
 * If a method is first defined in the Dog class (not overridden from the Animal class), can we invoke that method from an Animal reference variable? If not, what do we need to do with that Animal reference variable? (hint: starts with down)
-	- We can't if the variable has been assigned an animal object. However, if we upcast a dog object into the animal reference variable, we would be able to. 
-* What is special about the Object class?
+	- We can't if the variable has been assigned an animal object. However, if we upcast a dog object into the animal reference variable, we would be able to because the object it refers to is now Dog object.
+* What is special about the Object class? 
+	- The object class is the most base class there is. Every class is either a child of the Object class, or grandchildren, or great grandchildren, etc. The object class includes some basic methods which include equals(), hashCode(), and toString(); 
+	Its important to override these in child classes because otherwise they may not behave in an ideal way. 
 * What methods does the Object class contain?
-* What is the purpose of overriding the equals() method?
+	- Important ones (for our curriculum so far): 
+		* equals(obj o)
+		* hashCode()
+		* toString(); 
+	- Less relevant ones	
+		* clone()
+		* finalize()
+		* getClass()
+		* notify()
+		* notifyAll()
+		* wait()
+		* wait(long timeout) 
+		* wait(long timeout, int nanos) 
+		
+* What is the purpose of overriding the equals() method?'
+	- if we don't override this method, it only checks if the two variables point to the same object or not. We usually want this to additionally check if the two variables, if they point to different objects, if the properties of each object is equal. 
 * If we do not override the equals() method, how does its implementation in the Object class work?
+	- Its implementation in the Object class just checks to see if two reference variables point to the same object.  
 * What is the purpose of overriding the toString() method?
+	- So that we can control what the toString() method will output. For example, we can make it print out the class type as well as what datamembers it includes and their current values. 
 * If we do not override the toString() method, what does it do by default?
+	- It will just print out the package and class of the object, as well as the hashed memory location of the object. 
 * When overriding the equals() method, why do we also need to override the hashCode() method?
+	- Because if we adjust our equals() method without overriding the hashCode() method, then your class will no longer work with hash based collections, such as HashMap
 ---
 ## Day 2
 
 * What access modifiers are there?
+	- Access modifiers: Allow us to restrict access to datamembers and methods from other classes [graphic] (https://static.studytonight.com/java/images/access-modifier.jpg)
+		* public: datamembers or methods with this modifier can be accessed from anywhere within our project
+		* protected: datamembers or methods with this modifier can be accessed from anywhere within the same package, or from any child classes of this class. 
+		* default: datamembers or methods with this modifier can be accessed from anywhere within the same package
+		* private: Datamembers or methods with this modifier can only be accessed from within the same class
+	- [Non-access modifers] (https://stackabuse.com/non-access-modifiers-in-java/): 
+		* static: datamember or method belongs to the class itself, as opposed to objects instantiated from this class
+		* final: Variable values can't be changed once assigned, methods can't be overriden, classes can't be inherited
+		* abstract: If used on a method in a class, then it must be implemented in any children classes. If applied to a class itself, it means it contains abstract methods 
+		* synchronized: controls thread access to method/block. Won't be going over this during course. 
+		* volatile: Variable value is always read from main memory, and not thread memory. Has to do with multithreading, won't be going over in class.
+		* transient: variable is skipped when serializing an object. No idea what this means. 
 * What is the difference between protected and default access modifiers?
+	- default allows datamembers or methods with this keyword to only be accessible from within the same package. Protected has the same restriction, but additionally it allows child classes of the class to access these datamembers
+	and functions as well, even if they reside outside of the package. 
 * What are the four pillars of OOP?
+	- inheritance
+	- encapsulation
+	- polymorphism
+	- abstraction
 * What is inheritance?
+	- Inheritance is the concept of being able to create derived (child) classes from base (parent) classes. The derived classes ***inherit*** all the properties of the base class. You would then add additional behaviors to the child
+	class to make it distinct from the parent class. 
 * What is polymorphism?
+	- polymorphism is the concept of the same method being able to display many distinct behaviors based upon what class/object calls it and/or what arguments are passed to it. For example, the function toString(), which is present
+	in every class (because all classes are derived from the Object class), displays distinct behavior depending on which types call it. the toString() function is display polymorphic behaviors here. 
 * Is method overloading compile-time or runtime polymorphism, and why?
+	- Method ***overloading*** is compile-time polymorphism. This is because the compiler is able to tell what the execution path would be and can convert that into byte-code instructions. 
 * Is method overriding compile-time or runtime polymorphism, and why?
+	- Method ***overriding*** is run-time polymorphism. This is because the JVM needs to check what the type of object is actually being pointed to. 
 * What is encapsulation?
 * What is abstraction?
 * What is a Java bean?
