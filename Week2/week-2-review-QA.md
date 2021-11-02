@@ -177,3 +177,162 @@
 7. What do we mainly use generics with?
 	- Generics are used mostly with methods. Its used to create multiple different methods at once. Basically, if you want a print method for a collection, but you don't want to write a whole new method for each type of object the collection could have
 	you write a generic method so that no matter what the actual type of objects the collection is storing, it will have the same behavior. 
+---
+## Day 4
+
+1. What is the difference between StringBuilder/StringBuffer? Which one is faster?
+	- Both StringBuilder and StringBuffer are mutable versions of String. Basically this means that we can modify the characters in both StringBuilder and StringBuffer, instead of having to create a whole new String object, as we have to do with the regular String class. 
+	The difference between StringBuilder and StringBuffer is just that StringBuffer is thread safe and StringBuilder is not. This means that StringBuffer is safe to use during multithreaded operations, but that its also slower when were not utilizing multithreading. 
+2. Why is String concatenation slower than StringBuilder/StringBuffer?
+	- String concatenation is slower because the String class is immutable, meaning that we can't actually modify the underlying character array when we concatenate. Instead, we actually have to create a whole new String object to represent the new, concatenated String. 
+	However, both StringBuilder and StringBuffer  ***ARE*** mutable, meaning that we can add, remove, and modify all the characters contained within, without having to create a whole new String object. 
+3. Are Strings immutable or mutable? What does that mean?
+	- Strings, as in the actual String type class, are immutable in Java. This means once a String object is made, it cannot be modified. If we want to modify the String that a String variable has, we actually have to create and assign it an entirely new String object.
+4. Is StringBuilder/StringBuffer immutable or mutable?
+	- StringBuilder and StringBuffer are both mutable, meaning we can modify the "string" contained with (string in quotes because its not an actual String object contained within the StringBuilder/StringBuffer). We can modify the existing StringBuilder and StringBuffer, 
+	and therefore avoid having to create a whole new String object everytime we want to modify a string.
+5. Write a method that takes a String and returns a reversed version. Implement it using String concatenation, and another time with StringBuilder.
+	``` 
+	//String class implementation of reversing a String 
+	public class StringReverse {
+	
+		public static String StringReverse(String s) {
+		
+			String reversedString = "";
+		
+			for(int i = s.length() - 1; i >= 0; i--) {
+		
+				reversedString += s.charAt(i); 
+		
+			} 
+			
+			return reversedString; 
+			
+			//This method will have to create s.length() + 1 string objects during the course of its operation, because we can't modify existing String objects only create new ones...
+			/*	Lets say we want to reverse a String object that says "Hello". This function would have to create a String object = "" to initialize the reverseString, then it would create a new String object called
+			*	"o", then "ol" then "oll"...."olle"...."olleh". So it would make "hello".length() + 1 new Strings in order to reverse. And "Hello" would probably still be taking up memory in the String pool, depending
+			*	on how you initialized the original String variable. 
+			*
+			*/
+			
+		}
+		
+		public static StringBuilder StringBuilderReverse(StringBuilder s) {
+		
+			StringBuilder reversedString = "";
+			
+			for(int i = s.length() -1; i >= 0; i--) {
+			
+				reversedString += s.charAt(i); 
+				
+			}
+			
+			return reversedString;
+		
+		}	//Because StringBuilder is mutable, we dont have to create a new string everytime we append a new character to reversedString. Therefore, our program when it runs will run faster and take up less memory. 
+	
+		//Lastly, if we want to be really clever about reversing a StringBuilder string, just use the built in .reverse() method. Stop trying to reinvent the wheel for no reason :)
+		
+	}
+6. Why do we need to override both equals and hashCode at the same time?
+	- When we hash things, if they are equal (not the same object, but all properties are the same), then we want the hash of those two objects to be the same. This is how hashing works.  Now if we override equals, but not the
+	hash function, then the hash may create two different hashes for objects that are equal, because the old toHash() function only checks if the two variables point to the same object. This will break any datastructre that 
+	requires the use of hashing. <==== I'm not too confident of my understanding of this. Please do your own research and correct me if you find contrary explanations. 
+7. Can we extend multiple classes? What about implementing multiple interfaces?	
+	- We cannot extend multiple classes. Each class can only extend one other class. We can chain extends as much as we like, but we can only extend one class at once. We can however, implement as many interfaces as we like, so long
+	as none of them would conflict in some way.  
+8. What is a List? Is it indexed? Is it ordered?
+	- A list is a type of collection. It stores objects. It is indexed as well as ordered
+	- Indexed: every element has a designated place within the list, and those elements can be accessed by using that index. It can be iterated over.
+	- Ordered: Elements maintain the positions that theyre placed in. If you insert an element at the end of a list, it will stay there until you do something to move it or add another element after it. 
+9. How do we add elements to a List?
+	- we can use the .add(obj o) method, or any other similar method as documented [here](https://docs.oracle.com/javase/8/docs/api/java/util/List.html)
+10. Is List an interface or class?
+	- List is a class. It implements the Collection interface. 
+11. What classes implement List?
+	- AbstractList, AbstractSequentialList, ArrayList, AttributeList, CopyOnWriteArrayList, LinkedList, RoleList, RoleUnresolvedList, Stack, Vector. Again, these can be found on the [documentation](https://docs.oracle.com/javase/8/docs/api/java/util/List.html)
+12. What is a Set?
+	- A Set is a child interface of Collection. Classes that implement this store objects. Implementing classes, however, are not indexed, and all elements in the child class must be unique. 
+	Some implementing classes of Set have ordering and others dont
+13. Do sets have indices?
+	- Sets do not have indicies
+14. Is Set an interface or class?
+	- Set is an interface that extends the Collection interface
+15. What classes implement Set?
+	- AbstractSet, ConcurrentHashMap.KeySetView, ConcurrentSkipListSet, CopyOnWriteArraySet, EnumSet, HashSet, JobStateReasons, LinkedHashSet, TreeSet
+	***[set documentation](https://docs.oracle.com/javase/8/docs/api/java/util/Set.html)***
+16. What is a Map?
+	- Map is another interface, this time separate from the Collection interface, though it is still considered part of the Collections API. Classes that implement the Map interface store entries as key-value pairs 
+17. How do we add a key-value pair to a Map?
+	- .put(K key, V value);
+18. How do we retrieve a value using a key?
+	- .get(Object key);
+19. Can keys have duplicates or do they need to be unique?
+	- All keys must be unique. This is crucial to the operation of a Map. Otherwise, how would the Map know which object you wanted to retrieve?
+20. Is Map an interface or class?
+	- Map is an interface. 
+21. What classes implement Map?
+	- AbstractMap, Attributes, AuthProvider, ConcurrentHashMap, ConcurrentSkipListMap, EnumMap, HashMap, Hashtable, IdentityHashMap, LinkedHashMap, PrinterStateReasons, Properties, Provider, RenderingHints, SimpleBindings, TabularDataSupport, TreeMap, UIDefaults, WeakHashMap
+	- [Map documentation](https://docs.oracle.com/javase/8/docs/api/java/util/Map.html)
+22. What is a Queue?
+	- Another interface that extends Collection. Classes implementing Queue operate in a First In First Out (FIFO) manner. 
+23. Is Queue an interface or class?
+	- Queue is an interface. 
+24. What classes implement Queue?
+	- AbstractQueue, ArrayBlockingQueue, ArrayDeque, ConcurrentLinkedDeque, ConcurrentLinkedQueue, DelayQueue, LinkedBlockingDeque, LinkedBlockingQueue, LinkedList, LinkedTransferQueue, PriorityBlockingQueue, PriorityQueue, SynchronousQueue
+	- [Queue documentation](https://docs.oracle.com/javase/8/docs/api/java/util/Queue.html) 
+25. What is FIFO (first-in-first-out)?
+	- First in first out is the idea of the first element you put into the queue, should be the first element you get out of it. Its suppose to operate just like a queue in real like. You can cut in line, but you really shouldn't 
+26. Why do we need to test software?
+	- Minimize bugs
+	- Ensure requirements are met
+27. What is the difference between errors, bugs, and failures?
+	- Error: A human mistake. Improper implementation of a proper idea
+	- Bug: Mistake that is embedded in the actual code. Code works, but gives out the wrong answer. 
+	- Failure: A manifestation of the bug by the end user. Honestly, personal opinion here, but I think a failure would be more akin to the application straight up crashing for whatever reason. These definitions seem rather
+	arbitrary to me, and I feel as though often they would be used interchangably, but some do have certain connotations. 
+28. What is QA? What is QC? How are they different from each other?
+	- QA: Quality Assurance. Focuses on the process to ensure problems don't show up and products are of good quality. More of a holistic, organizational focus. 
+	- QC: Quality Control. Focuses on individual products. Catches actual bugs or issues that show up. More of an individual focus. 
+---
+## Day 5
+
+1. What is a unit test?
+	- A test that is testing an individual unit/piece of the code. Typically applied to individual methods. 
+2. What is a unit?
+	- A single piece of an overall application. Typically broken down into methods. 
+3. Is something ever 100% guaranteed to be bug-free?
+	- No. You can never, 100%, beyond a shadow of a doubt, be bug free. Its like asking if perfection is possible. hypothetically? sure, but not practically. Some people would probably even say hypothetically perfection doesnt 
+	exist either, but at that point your probably just talking to philosophy professors anyways. Sorry I guess thats off topic but it gets pretty boring answering all these questions. 
+4. What is positive v. negative testing? What is an example of a positive test v. a negative test?
+	- Positive testing: ensuring that, if given a ***PROPER*** input, a method will return a proper output.
+	- Negative testing: ensuring that, if given an ***IMPROPER*** input, a method will handle it elegantly/as intended. 
+	- I like to think of it like this:
+		* Positive Testing: Making sure that, if a user knows 100% what theyre doing and doesn't make mistakes, the program will work correctly. 
+		* Negative Testing: Making sure that, if a user is a hacker and is actively trying to make your program crash, it doesn't. I think negative testing is harder, but also a lot more fun. You get to ask yourself, how can I break
+		my code? 
+5. What is test driven development? Why might a development team choose to use TDD?
+	- Test driven development is the idea that all your development should center around writing tests that match your requirements, and then programming your code to pass those tests. 
+	- Generally, TDD allows us to have fewer bugs and keep our development more focused. 
+6. Is a UI / E2E test blackbox or whitebox testing? Why?
+	- Blackbox testing. Because at this level, the tester/testing software doesn't actually test methods or functions, they are simply testing if the output on a webpage and/or on the UI of an application give you the expected
+	output for a given input. It isn't actually testing individual functions or seeing the code at all. 
+7. Is unit testing whitebox or blackbox testing? Why?
+	- Unit testing is whitebox testing because we are actually looking at out code and getting into the details of our application. We know what our functions (should) do and how they do it. 
+8. How do we order tests with JUnit 5 (Jupiter)?
+	- Using JUnit5's annotations. They include...
+		* @BeforeAll: must be annotated on a static method, @BeforeEach: non-static, @Test: non-static, @AfterEach: non-static, @AfterAll: must be annotated on a static method
+	- You can also use the @TestMethodOrder(OrderAnnotation.class), and then @Order(1), @Order(2)... so on and so forth if you want to actually make your individual tests go in a certain order. 
+9. What is the difference between a test case and a test suite?
+	- Test case would be an individual test/unit test. A Test Suite is a comprehensive collection of tests, usually covering an entire application. 
+10. What annotations are there when using JUnit 5 (Jupiter)?
+	- @BeforeAll: must be annotated on a static method, @BeforeEach: non-static, @Test: non-static, @AfterEach: non-static, @AfterAll: must be annotated on a static method
+11. What assert methods from the JUnit 5 Assertions class are commonly used? What do they do?
+	- assertArrayEquals(int[] expected, int[] actual), assertEquals(int expected, int actual), assertTrue(boolean actual), assertFalse(boolean actual), fail(): automatically fails the test
+	- They do pretty much exactly what they say. Pass if expected == actual, fail otherwise. Or just fail if you use fail() lol 
+12. What two types of exceptions are there?
+	- Checked and unchecked. Checked exceptions must be handled or declared, otherwise compiler wont let you compile. Unchecked exceptions are allowed to compile if they can/do exist. This is because generally they can't be 
+	recovered from. Something like dividing by 0 would throw an unchecked math exception. 
+13. Describe the inheritance hierarchy for exceptions starting w/ Throwable
+	- Throwable -> Exception -> RunTimeException
+	- Throwable -> Error
