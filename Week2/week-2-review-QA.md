@@ -234,6 +234,8 @@
 		//Lastly, if we want to be really clever about reversing a StringBuilder string, just use the built in .reverse() method. Stop trying to reinvent the wheel for no reason :)
 		
 	}
+	```
+	
 6. Why do we need to override both equals and hashCode at the same time?
 	- When we hash things, if they are equal (not the same object, but all properties are the same), then we want the hash of those two objects to be the same. This is how hashing works.  Now if we override equals, but not the
 	hash function, then the hash may create two different hashes for objects that are equal, because the old toHash() function only checks if the two variables point to the same object. This will break any datastructre that 
