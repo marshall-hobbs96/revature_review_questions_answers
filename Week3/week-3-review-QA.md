@@ -204,3 +204,53 @@
 	- So that we can perform CRUD (Create, Read, Update, Delete) with our database. 
 
 </details>
+
+---
+
+## Day 3 
+
+<details>
+
+<summary> click to expand </summary>
+
+1. What is a DTO (Data transfer object)?
+	- An an object that satisfies the Java Bean standard. Used to encapsulate and pass around data as a single object. 
+	- A ***MODEL*** is a type of DTO. It has all the properties associated with its database representation. 
+	
+2. What was the motivation for creating a AddOrUpdateStudentDTO class to use when adding or updating a student in our demo example?
+	- In order to simplify and streamline our code. Using the AddOrUpdateStudentDTO allows us to self comment to a degree, as well as create an 
+	object we can use for data transfers that only includes the properties we need. 
+	
+3. When we insert a new record, if the datatype for the primary key is SERIAL, do we need to provide a primary key value ourselves?
+	- No we do not. Because it is a SERIAL type, it will auto increment when we insert a new entry. However, we can still assign our own values
+	if we desire. This value doesn't need to be unique just because it is serial, but if we use a constraint such as PRIMARY KEY, then our value
+	must be unique. This may create problems if we insert a serial number that the SERIAL sequence hasn't reached yet. I actually don't know, 
+	something I may have to look up. 
+		* For example, if we have id SERIAL PRIMARY KEY, and we already have id's 1, 2, 3 and 4 in our database, if we manually insert 5 in our database
+		without letting SERIAL auto increment, will SERIAL auto increment into 5 next time we insert an entry without a specified id? I'll have to do
+		some research. 
+		
+4. What layer's methods will the service layer's methods be invoking?
+	- The service layer's methods will be invoking methods from the Data Access Layer
+	
+5. What layer's methods will the controller layer's methods/lambdas be invoking?
+	 - The Controller Layer's methods will be invoking the methods from the Service Layer
+	 
+6. What technology do we use in the controller layer (starts with J)?
+	- Javalin
+	
+7. What technology do we use in the data access layer (also starts with a J)?
+	- JDBC
+	
+8. What does `ctx.bodyAsClass(EditFirstNameDTO.class)` do in the demo's controller layer?
+	- This pulls data from a JSON file sent to our database. It will create an object out of this data, and set the corrosponding properties 
+	sent on the JSON to the properties of the object made. 
+	- In this example, it will create a "EditFirstNameDTO" object, and set whatever properties were listed in the JSON to the corrosponding 
+	(same named) properties in the new object. It will return an EditFirstNameDTO object.
+	
+9. What does `ctx.pathParam("id")` do in the demo's controller layer?
+	- This pulls the information contained in the URI that is denoted as {id}. for example: localhost:8080/student/{id}/
+		* ctx.pathParam("id") will pull whatever values is put into the {id} field whenever a request is sent to this url/uri 
+
+
+</details>
