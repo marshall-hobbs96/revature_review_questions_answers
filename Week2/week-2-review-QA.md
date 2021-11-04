@@ -1,6 +1,11 @@
 # Question Practice Week 2
 
 ## Day 1
+
+<details>
+
+<summary> Click to expand </summary> 
+
 1. What is the purpose of inheritance?
 	- Inheritance allows us to create derivative classes. This is useful because it allows us to build on top of existing classes, and therefore makes it easier to create new classes
 	but also makes it easier to organize different classes and draw relationships between them. The purpose of inheritance is better organization, readability, the ability to build
@@ -74,8 +79,14 @@
 	- It will just print out the package and class of the object, as well as the hashed memory location of the object. 
 16. When overriding the equals() method, why do we also need to override the hashCode() method?
 	- Because if we adjust our equals() method without overriding the hashCode() method, then your class will no longer work with hash based collections, such as HashMap
+	
+</details>
+	
 ---
 ## Day 2
+
+<details> 
+<summary>  Click to expand </summary>
 
 1. What access modifiers are there?
 	- Access modifiers: Allow us to restrict access to datamembers and methods from other classes [graphic] (https://static.studytonight.com/java/images/access-modifier.jpg)
@@ -157,8 +168,15 @@
 	- public and abstract
 22. If I declare a variable inside an interface, what implicit modifiers does it have?
 	- public, static, and final 
+	
+</details> 
+	
 ---
 ## Day 3
+
+<details> 
+
+<summary> Click to expand </summary> 
 
 1. What are wrapper classes?
 	- Wrapper classes are classes that "wrap up" primitives. They are useful for essentially turning primitive types into reference types. This is useful because in order to modify a primitive in a method, we must pass it by reference instead of by value.
@@ -177,8 +195,15 @@
 7. What do we mainly use generics with?
 	- Generics are used mostly with methods. Its used to create multiple different methods at once. Basically, if you want a print method for a collection, but you don't want to write a whole new method for each type of object the collection could have
 	you write a generic method so that no matter what the actual type of objects the collection is storing, it will have the same behavior. 
+	
+</details> 
+	
 ---
 ## Day 4
+
+<details> 
+
+<summary> Click to expand </summary>
 
 1. What is the difference between StringBuilder/StringBuffer? Which one is faster?
 	- Both StringBuilder and StringBuffer are mutable versions of String. Basically this means that we can modify the characters in both StringBuilder and StringBuffer, instead of having to create a whole new String object, as we have to do with the regular String class. 
@@ -296,8 +321,15 @@
 28. What is QA? What is QC? How are they different from each other?
 	- QA: Quality Assurance. Focuses on the process to ensure problems don't show up and products are of good quality. More of a holistic, organizational focus. 
 	- QC: Quality Control. Focuses on individual products. Catches actual bugs or issues that show up. More of an individual focus. 
+	
+</details>  
+	
 ---
 ## Day 5
+
+<details> 
+
+<summary> Click to expand </summary> 
 
 1. What is a unit test?
 	- A test that is testing an individual unit/piece of the code. Typically applied to individual methods. 
@@ -338,3 +370,5 @@
 13. Describe the inheritance hierarchy for exceptions starting w/ Throwable
 	- Throwable -> Exception -> RunTimeException
 	- Throwable -> Error
+	
+</details> 
