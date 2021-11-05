@@ -365,11 +365,17 @@
 	- LEFT JOIN 
 	- RIGHT JOIN
 23. How would you describe an INNER JOIN, an OUTER JOIN, a LEFT JOIN, and a RIGHT JOIN?
-	- INNER JOIN: 
-	- OUTER JOIN: 
-	- LEFT JOIN: 
-	- RIGHT JOIN: 
+	- INNER JOIN: Joins from both tables if there are matching values in both tables
+	- OUTER JOIN: Joins from either table if there are matchings in either table 
+	- LEFT JOIN: Returns all records from the first table, as well as any matching records in the second table 
+	- RIGHT JOIN: Returns all records from the second table, as well as any matching records in the first table
+	
 24. Of the following clauses associated with the SELECT command (`FROM`, `JOIN ... ON ... = ...`, `WHERE`, `GROUP BY`, `HAVING`, `ORDER BY`) remember the order they must be written in
+	- Its listed in order in the question
+	- FROM, JOIN ON, WHERE, GROUP BY, HAVNG, ORDER BY 
+	
 25. How does ORDER BY order the data from a query by default (ascending? descending?) ? How do we have it do the opposite?
+	- By default, it orders it ascending (Smallest value at the top). If we want it to be deescending, we use DESC after the criteria we 
+	want to order by. This will order it the opposite way, with the largest values at the top. 
 
 </details> 
