@@ -254,3 +254,122 @@
 
 
 </details>
+
+---
+## Day 4 
+
+<details>
+
+<summary> Click to expand </summary> 
+
+1. What is the purpose of `ctx.json(...)`?
+	- This is used to send back information to the HTTP client in JSON format. For example, if they wanted to create a new client for our banking
+	application, we could send back information that confirms that it was a success, as well as provide information on the new client that was created. 
+
+2. What is the purpose of `ctx.status(...)`?
+	- This is to send HTTP status codes back to the HTTP client. This allows us inform the user about the status of their HTTP request. For example, if 
+	something went wrong, we could send back a 4xx or 5xx error code, in order to better inform the user what exactly went wrong. Conversely, if 
+	everything went right, we could send back a 2xx code to inform them of what successful action just took place. 
+	
+3. What is HTTP?
+	- HTTP stands for HyperText Transfer Protocol. It is the standard protocol for communicating over the internet. It is composed of different 
+	kinds of requests and responses. 
+	
+4. Describe the HTTP request/response cycle in relation to our backend application
+	- A client (in our case, something like postman) sends an HTTP request containing information like what we would like to do (POST, GET, etc.)
+	as well as any pertinent information. Once our server receives this information, we manipulate it and/or perform some action, and return some 
+	kind of information back. This could either be information from our database that the client requested, or confirmation that we added new 
+	information to our database. 
+	
+5. What are the 5 commonly used HTTP methods?
+	- POST, GET, PUT, PATCH, DELETE
+	
+6. What is the proper usage of GET v. POST v. PUT v. PATCH v. DELETE?
+	- PUT: Replace an entire resource, such as replacing the information of an entire banking client 
+	- POST: Create a new resource, such as creating a new banking client
+	- GET: Retrieve information on an existing resource, such as information on a current banking client
+	- PATCH: Partially update information on an existing resource
+	- DELETE: Completely delete an existing resource
+	
+7. What 4 components does an HTTP request consist of?
+	- The HTTP method, which includes (but is not limited to) the five common HTTP methods just listed
+	- URI (Uniform Resource Identifier). This looks like an extension of the URL, but actually contains additional information that is 
+	passed to the server
+	- Request headers. 
+	- Request body.
+	
+8. What 3 components does an HTTP response consist of?
+	- Status code. This is a short numerical code that gives a general status of the HTTP request just sent. Includes success and error codes
+	- Response headers.
+	- Response  body.
+	
+9. What do each of the 1XX, 2XX, 3XX, 4XX, and 5XX status code categories mean?
+	- 1xx: Informational codes. 
+	- 2xx: Successful codes. Used when an HTTP request is successful. Optionally provides a little more specific information about what that 
+	successful request accomplished. 
+	- 3xx: Redirection codes. Used to redirect in case of an endpoint or website moving, or some other such reason for a redirect. 
+	- 4xx: Client error codes. Something is wrong on client end. Maybe you put the URL wrong, or tried to access something you don't have
+	permissions for.
+	- 5xx: Server error codes. Something bad happened on the server side, but it isn't the client's fault. 
+	
+10. If I wanted to delete a student with ID of 1, what is the appropriate HTTP method to use, and what might the URI look like?
+	- If we're following the example give in lecture...an appropriate HTTP method would be DELETE. We would likely have a URI that looks
+	something like "/students/1/deleteStudent". The "1" in this URI represents the ID of the student we wish to delete. 
+	
+11. What is referential integrity?
+	- Referential integrity is the idea that we cannot have foreign keys that point to nothing. For example, if we had a clients and an accounts 
+	table in our database, and the accounts table had a foreign key that linked accounts to a specific client, we couldn't drop our clients table, 
+	because then we would have entries within the accounts table that would be referencing entries in the clients table that no longer exists. 
+	This is the idea of referential integrity. We cannot delete entries that are being relied on by other entries, without first deleting the 
+	entries that are doing the relying....If thats not too confusing to follow.....
+	
+12. What are the 4 ACID properties?
+	- Atomicity
+	- Consistency
+	- Isolation
+	- Durability
+	
+13. What is atomicity?
+	- A transaction succeeds in its entirety or not at all. No partial transactions can occur. 
+	
+14. What is consistency?
+	- A transaction cannot violate constraints or referential integrity.
+	
+15. What is isolation?
+	- Two transactions cannot interfere with each other if they are happening concurrently. 
+	
+16. What is durability?
+	- When a transaction is committed, it is permanently stored in database's memory. 
+	
+17. What are aggregate functions and scalar functions? How are they different from each other?
+	- Scalar functions are functions that act on just one entry's information. Aggregate functions work on multiple entries information and 
+	collates that data. 
+	
+18. Research and remember some examples of aggregate functions
+	- SELECT AVG(funds) FROM clients. This is an aggregate function, because it aggregates all the results (funds) from all clients into one
+	value, which in this case will be the average of all those funds. 
+	
+19. Research and remember some examples of scalar functions
+	- SELECT name FROM clients. This will return the names of all clients within a clients table. It is scalar because for each entry, it is
+	just acting on that entry alone, and returning a value for that one entry. 
+	
+20. What is the purpose of the GROUP BY clause? What type of function (scalar? aggregate?) do we use with GROUP BY?
+	- Group by allows us to group our output by a certain criteria. This is used with aggregate functions. 
+	
+21. What is the difference between WHERE and HAVING?
+	- WHERE would be used to filter out data by individual entries. HAVING would filter out aggregate data we've already collected. 
+	
+22. What are the 4 types of joins?
+	- INNER JOIN
+	- OUTER JOIN
+	- LEFT JOIN 
+	- RIGHT JOIN
+23. How would you describe an INNER JOIN, an OUTER JOIN, a LEFT JOIN, and a RIGHT JOIN?
+	- INNER JOIN: 
+	- OUTER JOIN: 
+	- LEFT JOIN: 
+	- RIGHT JOIN: 
+24. Of the following clauses associated with the SELECT command (`FROM`, `JOIN ... ON ... = ...`, `WHERE`, `GROUP BY`, `HAVING`, `ORDER BY`) remember the order they must be written in
+25. How does ORDER BY order the data from a query by default (ascending? descending?) ? How do we have it do the opposite?
+
+</details> 
