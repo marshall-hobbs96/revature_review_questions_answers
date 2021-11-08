@@ -379,3 +379,130 @@
 	want to order by. This will order it the opposite way, with the largest values at the top. 
 
 </details> 
+
+---
+
+## DAY 5
+
+<details>
+
+<summary> Click to expand </summary> 
+
+1. What are the classes and interfaces associated with the JDBC API?
+	- DriverManager class
+	- SQLException class
+	- Connection class
+	- Statement class
+	- PreparedStatement class
+	- CallableStatement class
+	- ResultSet class
+	
+2. How does the DriverManager class help us to obtain a Connection object?
+	- Allows us to register a database driver. This essentially lets the JDBC API know what kind of database its working with. We need to 
+perform this step before we actually establish the connection with our database and obtain a Connection object	
+	
+3. What steps do we need to take to create a Connection object using DriverManager?
+	- Once weve registered our drivermanager, we just need to provide the URL of our database, our username, and our password in order to 
+	gain access. This is done by...Connection connection = DriverManager.getConnection(String url, String username, String password);
+	
+4. What is a SQL Driver? Why do we need to register the Postgres Driver with the DriverManager?
+	- An SQL driver is a piece of software that we use to actually communicate to and from our database. We pass SQL statements to the driver
+	and it sends these SQL statements to our database. It also handles any return messages the database wants to send to us. 
+	- We need to register our postgres driver with the DriverManager because all SQL drivers are different, and thus will have different 
+	acceptable ways to communicate with them. We must let our DriverManager know what SQL driver we're using so that it knows how to properly
+	communciate with it. 
+	
+5. How is PreparedStatement different than Statement?
+	- Statement generally just takes in any String that you pass to it. You can then call executeQuery or some other method that will then make 
+	it send that string as an SQL statement to the database through the SQL driver. 
+	- PreparedStatement does the same thing, however, instead of taking any String you pass to it, you instead premake a String with certain
+	words missing in it, which you later fill in. These words are usually filled in as arguments gathered from a client. In this way, you can 
+	have only predefined SQL statements that will wrap any user input, no matter how convuluted. In this way, you can prevent users from
+	inputting their own custom SQL statements and therefore potentially carrying out SQL injection attacks. 
+	
+6. What do we use ResultSet for?
+	- ResultSet stores any resulting data from our database that we may receive as a result of sending a SQL statement. It will store this data as 
+	a separate object for each row. We can then iterate over each row given to us by using the .next() method, which returns true until it 
+	reaches the end of rows to iterate over, in which case it will return false. 
+	
+7. What 2 common types of web services are in use today?
+	- SOAP: Simple Object Access Protocol
+	- REST: REpresentable State Transfer
+	
+8. What is REST?
+	- REpresentable State Transfer. Its a modern paradigmn/design philosophy for modern web applications. Centered around using HTTP requests
+	and responses in order to transfer data via JSON. Main goal is to be lightweight, maintainable, scalable. 
+	
+9. What are the 6 constraints of REST?
+	- Stateless
+		* The server should not save information about the previous request. Essentially, the properties and behaviors of our server shouldn't 
+		change if we want to maintain a stateless server. If a client sends an http request, sending that http request shouldn't "lock" or "unlock"
+		certain methods or properties of the server. 
+		* This is more of a soft rule, because if we want to have things like logins, then we will likely have to violate this stateless constraint. 
+		
+	- Cacheable
+		* The server should have the ability to cache data that is frequently accessed, in order to improve performance. Instead of querying
+		the database for the same piece of information over and over again, the server should cache that piece of data, so as to save time
+		and effort. 
+		
+	- Uniform Interface 
+		* We should maintain a uniform, consistent, predictable way of interacting with our server. I.e. how URI's and HTTP methods are used
+		should remain consistent, uniform, predictable, and ideally as convenient as possible. 
+		
+	- Client/Server relationship 
+		* API should have envolving relationship with client that is using it. If a method is modified on one side, it should change behavior
+		on the other. 
+		
+	- Layered Architecture 
+		* Regardless of how complex our server or database may be, the client should be able to access our webservice as if it were monolithic. 
+		Any complexity should be hidden from the client. 
+	
+	- Code on demand (optional)
+		* The server should be able to send code to the client to run. 
+		
+10. What is Mockito?
+	- Mockito is a package in java that essentially allows us to mock the output of certain methods. This allows us to test other methods in 
+	isolation. In our project 0, it is primarily used to mock the outputs of our DAL layer when writing unit tests for our Service layer, however
+	there is no reason that mockito couldn't be used to mock any other layer, or any other kind of method. 
+	
+11. What is the purpose of a mock object?
+	- In order to provide an object that our system under test (SUT) requires. For example, our service layer in project 0 requires a Data 
+	Layer Object in order to function. So we create a mock data access object to pass to our service layer constuctor. We may then mock any
+	output that we care to from the mockDao object. 
+	
+12. How does mocking tie into the definition of a unit test?
+	- Unit tests should test methods in isolation from other parts of our code. With methods that rely on other method to function, mocking 
+	allows us to mock the behavior of these dependant functions to ensure that they will not be a point of failure, and that we are getting the 
+	behavior that we want from them. This ensures that we are only testing the single method we want to test at that point. 
+	- In sort, mocking allows us to spoof the isolation required for unit testing, even when there are methods depending on other methods. 
+	
+13. Why might we choose to use Javalin's exception mapping functionality over `try {} catch(... e) {}`?
+	- Primarily, it provides a central location to catch any and all exceptions that may reach that point. If we catch all of our exceptions here, 
+	it will allow us to have cleaner, simpler code with less redundency. Additionally, it may help us catch exceptions that we either forgot to
+	catch, or that we couldn't catch for whatever reason within our handler functions. 
+	
+14. How does throwing exceptions in the service layer of our application help with implementing proper HTTP status codes?
+	- If we throw exceptions from within our service layer, which is also the layer where we should be doing input validation, then we can also
+	set a status code which better describes the issue encountered, if there was one. For example, we can throw a status code which indicats
+	that the input provides was invalid, such as a name that is too long for our database. 
+	
+15. Why is logging important in an application?
+	- Logging is important because it lets us keep track of relevant events, such as HTTP requests that have been sent, any errors encountered
+	or other such relevant info. It allows us to have a record of events should anything ever go wrong for any reason. 
+	
+16. What are the 5 logging levels? What is the least important to most important?
+	- Trace ***LEAST IMPORTANT***
+	- Debug
+	- Info
+	- Warn
+	- Error ***MOST IMPORTANT*** 
+	
+17. What is the purpose of an appender?
+	- An appender allows us to configure what information is displayed/logged. For example, we can choose to only log Info and higher log events
+	and not to log Debug and Trace. 
+	
+18. What is the ConsoleAppender and FileAppender?
+	- ConsoleAppender is what allows us to configure what logging information is displayed in the console when we run our server. 
+	- FileAppender is what allows us to configure what logging information is exported to our logfile when we run our server. 
+
+</details>
