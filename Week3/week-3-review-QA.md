@@ -229,7 +229,8 @@
 		* For example, if we have id SERIAL PRIMARY KEY, and we already have id's 1, 2, 3 and 4 in our database, if we manually insert 5 in our database
 		without letting SERIAL auto increment, will SERIAL auto increment into 5 next time we insert an entry without a specified id? I'll have to do
 		some research. 
-		
+			- Serial will autoincrement into 5, thus causing an error. Credit to Jymm Enriquez for looking into that. 
+			
 4. What layer's methods will the service layer's methods be invoking?
 	- The service layer's methods will be invoking methods from the Data Access Layer
 	
