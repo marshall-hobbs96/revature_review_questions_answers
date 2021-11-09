@@ -391,11 +391,11 @@
 1. What are the classes and interfaces associated with the JDBC API?
 	- DriverManager class
 	- SQLException class
-	- Connection class
-	- Statement class
-	- PreparedStatement class
-	- CallableStatement class
-	- ResultSet class
+	- Connection Interface
+	- Statement Interface
+	- PreparedStatement Interface
+	- CallableStatement Interface
+	- ResultSet Interface
 	
 2. How does the DriverManager class help us to obtain a Connection object?
 	- Allows us to register a database driver. This essentially lets the JDBC API know what kind of database its working with. We need to 
