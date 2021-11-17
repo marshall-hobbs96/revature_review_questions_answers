@@ -126,13 +126,13 @@
 	- install: Install our code into our local maven repository
 	- Deploy: Upload our local maven repository to mvnrepository 
 
-<details>
+</details>
 
 ## Day 2
 
 <details>
 
-<summary> Click to expand <summary>
+<summary> Click to expand </summary>
 
 
 1. What does it mean for JavaScript to be dynamically typed?
@@ -153,13 +153,13 @@
 	- null
 	- object 
 
-<details>
+</details>
 
 ##Day 3
 
 <details>
 
-<summary> Click to expand <summary>
+<summary> Click to expand </summary>
 
 1. What 3 types of functions are there?
 	- Named functions: ```function myFunction() = {do things;}```
@@ -227,13 +227,13 @@
 	- let object1 = {"property1" : "hello",
 					"property2" : "World"}
 
-<details>
+</details>
 
 ##Day 4
 
 <details>
 
-<summary> Click to expand <summary>
+<summary> Click to expand </summary>
 
 1. What is the difference between a path parameter and query parameter for an HTTP request?
 	- A path parameter is a required field within the URI for an endpoint. I.e, if you want to delete a client in our bank API, you need to specify which id they have. If you don't include this, you
@@ -267,7 +267,7 @@
 		* plain = tag
 		
 9. What is another function that belongs to document besides querySelector that allows you to select an element by its id?
-	- addEventListener('tag', functionYouWantToCall);
+	- document.getElementById(some-id) 
 	
 10. Using `document.querySelectorAll(...)`, how do you select A LIST of elements with a class of `some-class`?
 	- querySelectAll('#some-class')
@@ -305,13 +305,13 @@
 19. Using the idea of adding an event listener to an element, how would you be able to print to the console the message, "button clicked" whenever you click on a button?
 	- button.addEventListener('click', printButtonClicked);
 
-<details>
+</details>
 
 ##Day 5
 
 <details>
 
-<summary> Click to expand <summary>
+<summary> Click to expand </summary>
 
 1. What is a "callback" function?
 	- A function that is passed as an argument to another function. It is then invoked by the outer function in order to perform some action. 
@@ -345,4 +345,4 @@
 	- It essentially does the same thing, but allows us to structure our JS code in a more traditional try...catch block fashion. You must declare any function that uses await within it as an
 	async function. 
 
-<details>
+</details>
