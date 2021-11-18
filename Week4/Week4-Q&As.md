@@ -287,11 +287,10 @@
 	- Arrays are not static. They can dynamically change in size. 
 	
 15. What 4 functions can we utilize to add and remove elements from a JS array?
-	- appendChild()
-	- insertBefore()
-	- replaceChild()
-	- remove()
-	- removeChild()
+	- push: add an element to the end of an array
+	- pop: remove an element from the end of an array
+	- unshift: add an element to the beginning of an array
+	- shift: remove an element from the beginning of an array
 	
 16. What is an event?
 	- An event is something that the user does on the webpage, such as clicking a button 
