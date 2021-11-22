@@ -203,11 +203,22 @@
 <summary> Click to expand </summary> 
 
 1. What is the difference between Cucumber, Selenium, and JUnit 5? How would you describe each of these technologies? How do we use them together?
-	- Cucumber: 
+	- Cucumber is a software tool that we can use to help us use Behavior Driven Development. It allows us to define different features in feature files, different scenarios for each of those 
+	features, and allows us to automatically generate test code (known as glue code) from all those different scenarios
+	- JUnit5 is a testing software tool. It allows us to create test methods to test actual methods in our code. It allows us to assert what the result of a method should be, and can then automatically
+	run these tests/assertions and let us know the outcome (pass, fail, exception thrown). On its own, it is primarily used for unit testing, although paired with a tool like selenium, it can be used
+	to create E2E tests as well. 
+	- Selenium is a software tool for automating web page actions. Primarily used to conduct E2E tests. Usually paired with a testing tool, like JUnit5
+	
 2. If we have only one feature file with 4 scenarios defined in it (scenario 1 has 5 steps, scenario 2 has 4 steps, scenario 3 has 4 steps, and scenario 4 has 3 steps), and then use our TestRunner file and run as JUnit test, how many tests does JUnit consider that as?
+	- If we assume the steps are the same...Then only 5 steps. If they aren't the same, then 16 steps. If its a combination, it could be anywhere inbetween. This is because
+	the gluecode generated is the same if the step definition is the same. So assuming you set it up right, JUnit5 would only see it as 5 tests.
+	
 3. Refer to the `add.feature` file [at this LINK HERE](https://github.com/211018jwa/training/blob/main/week-5/day-4/calculator-e2e-bdd-testing/src/test/java/com/revature/features/add.feature#L3-L25). Note how each of the 4 scenarios (test) has the same step, `Given I am at the calculator page`. Is there a single "step definition" in the gluecode file or multiple step definitions for this?
     - The question above is to get you thinking about the fact that you can re-use the same step in multiple scenarios in your feature files. But, the step definition/implementation itself (a method) will be a single one in the gluecode file. 
     - [example here](https://github.com/211018jwa/training/blob/main/week-5/day-4/calculator-e2e-bdd-testing/src/test/java/com/revature/tests/ArithmeticTest.java#L17-L24)
+	
+	- There is a single step definition
 	
 </summary> 
 	
@@ -220,17 +231,55 @@
 <summary> Click to expand </summary>
 
 1. How does Agile and DevOps work together in software development?
+	- One of Agile's main focus' is continously delivering small, incremental, functional code. DevOps, using Continuous Integration and Continuous Delivery tools, can aid in this by creating
+	pipelines from repositories all the way to deployment.  
+	
 2. There are three fundamental principles underpinning Agile combined with DevOps known as CI/CD. What is continuous integration, continuous delivery, and continuous deployment?
+	- Continuous Integration is merging code together frequently
+	- Continuous Delivery is keeping merged code in a deployable state
+	- Continuous Deployment is actually continually deploying your merged code 
+	
 3. What is a Git branch?
+	- A different branch in a repository. Like a different version of the same repository. 
+	
 4. When developing a new feature, should we be working directly in the `main`/`master` branch? If no, what should we do instead?
+	- No, we should be working in some kind of development branch. Either a branch specifically for the feature we're working on, or a general development branch. This ties into the concept of Continuous
+	Delivery. Only deliverable code should be in the main branch. However, we still want to be able to remote store code in progress in our remote repository, without breaking this rule. So we create 
+	a development branch of some kind. 
+	
 5. Why should code be constantly merged together?
+	- So that we can ensure that it all worked and is in a continuously deliverable state. So we can adhere to the Agile principal of continuously delivering small, incremental, functional code. 
+	
 6. Ensuring that the `main`/`master` branch is consistently in a "deliverable" state is important. What does it mean for it to be in a deliverable state? How can setting up a Github actions workflow like we saw during demos help to provide a metric on being "deliverable"?
+	- Being in a deliverable state means that we can take the code that we have in our main/master branch, and actually run it without issues. An explicit example would be being able to take our Java program
+	run mvn package on it, have it compiled into a jar file while passing all tests, and then being able to run that jar file without issue (though we may still have features missing).
+	
 7. What is Jenkins?
+	- Jenkins is a DevOps tools for CI/CD. It allows us to create pipelines from our repositories to wherever we are deploying our applicaitons. It takes our code and deploys it. 
+	
 8. What is a Jenkins continuous delivery pipeline?
+	- It is something that allows us to input a remote repository URL, create a method for when/how to grab that code, and list several bash commands we would like to execute whenever we do grab that code.
+	In this way, we are creating an automated "pipeline" directly from our repository, to deployment. 
+	
 9. How can we use Jenkins to deploy an application "at the touch of a button"? Is this continuous delivery or continuous deployment?
+	- In the above example. Provide rep URL, define method for getting code from repo, define bash commands for when code is grabbed. This is continuous deployment, because in this case we would be 
+	actually deploying our code. 
+	
 10. How can we then completely automate Jenkins to automatically build and deploy our application whenever the `main`/`master` branch on Github changes? Is this continuous delivery or continuous deployment?
+	- github web hooks. When set up, they automatically send an http request letting Jenkins know the code is ready. Once thats done, we just do the above steps that I've now listed out twice. Continuous deployment,
+	because again, we are deploying our code. 
+	
 11. What is the difference between a development, test, pre-prod, and prod environment in relation to testing?
+	- Development: for developing code that can't and/or isn't intended to be deployed/pass tests
+	- Test: for testing, duh
+	- pre-prod: basically user testing. Now that we know our features work, we need to make sure our features are GOOD. Also sniff our any bugs that may have slipped through the cracks. 
+	- prod: Where we actually deploy our application. This is it, its now running and accessible to the end user. 
+	
 12. With regards to http sessions, how does the server identify who the client is when they send requests? What does the client need to possess and send along with the http request? (hint: starts with a c)
+	- HTTPSessions. A cookie. 
+	
 13. We can set an attribute such as `currentuser` to a particular http session along with an object such as a `User` object like in the http session demo. How can this help us out with regards to protecting endpoints and tracking who is logged in?
+	- Lets us keep track of what user is currently logged in by saving their info as an object in our webserver. It helps us protect endpoints and make sure we know whos logged in by....saving whos logged in? I mean,
+	the question kind of answers itself...
 
 </details> 
