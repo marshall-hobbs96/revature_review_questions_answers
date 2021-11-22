@@ -65,14 +65,50 @@
 	- CSS locators
 	
 3. What common CSS selectors are there? How can we use Selenium's By.cssSelector locator to locate elements with these CSS selectors?
+	- Id: driver.findElement(By.cssSelector("#firstname"));
+	- Class: driver.findElement(By.cssSelector(".firstname"));
+	- Tag: driver.findElement(By.cssSelector("div"));
+	- Descendant: driver.findElement(By.cssSelector("div p"));
+	- Attribute: driver.findElement(By.cssSelector("div[attribute = 'value']"));
+	
 4. What is XPath?
+	- An alternative way to find elements in an HTML webpage or DOM. Specified the path from the top of the document all the way to the target
+	element. Similar to the path of files on your computer, but for web element on a page. 
+		* html/body/div[1]/p[1] <- travels from the top of the document, to the html element, body element, the first div element, to the first p element. 
+		
 5. What is the difference between absolute XPath and relative XPath?
+	- Absoulte Xpath spells out the complete path of the element you are trying to reach, similar to the example in the previous question
+	- Relative Xpath allows you to skip spelling out the entire path of an element, and instead specify the partial path of an element you want to find
+		* for example: //p[1] will select the first p element in the document
+		
 6. What is the Chropath plugin and how does it help us determine if the CSS selector or XPath selectors we are writing are valid or not?
+	- It is a browser extension that will display the Xpath or CSS selector for whatever element you select in a web page. 
+	
 7. What is the purpose of a wait when using Selenium?
+	- In order to give the JavaScript embedded within a web page time to resolve a method. If we are testing something in a webpage that has 
+	results that are delivered by JavaScript, it will take time for those result to appear. At least, much longer than it would take to retrieve
+	them. Therefore, we instruct selenium to wait until those results appear. Otherwise, selenium wouldn't be able to locate the results, and 
+	would throw an exception. 
+	
 8. What 2 types of waits are there?
+	- Implicit wait
+	- Explicit wait
+	
 9. What is the difference between an implicit and explicit wait?
+	- An implicit wait is a method/selenium preference that is called once at the beginning of the selenium test. It will cause all subsequant 
+	selenium methods to wait for the element it is dependent on finding to appear, if it doesn't exist. 
+	- Explicit wait must be defined for every selenium method that we want to wait. Because we must define it each time we want something to wait,
+	it can be easier to understand what is happening within our code (self commenting) 
+	
 10. Which type of wait is preferable to use? Why?
+	- Explicit wait, as it is more obvious what is going on to someone who is reading our code. It is self commenting (meaning we dont have to 
+	make comments to explain what is happening in our code, its just kind of obvious). 
+	
 11. What is the page object model, what is its benefits, and how do we use it with Selenium?
+	- It is a class that is primarily used in selenium testing. It is a class that stores all the xpath/css locator locations for various elements
+	within a web page. This makes it easier to access these element in later tests, as we can just reference the class we created. It also makes 
+	it easier to update our testing if locations change within a webpage, since we just need to change a few lines of code within our class, instead
+	of having to update locators in ALL of our test methods.
 
 </details>
 
@@ -85,22 +121,76 @@
 <summary> Click to expand </summary> 
 
 1. What is BDD?
+	- Stands for Behavior Driven Development. A way of approaching development by first setting out all the intended behaviors of an application. 
+	Somewhat similar to user stories in AGILE. Allows for bridging the gap between development and other, non-technical parties. 
+	- TDD is a part of BDD. 
+	
 2. What is TDD?
+	- Stands for Test Driven Development. Designing the tests for an application first, then developing in order to pass these tests. 
+	
 3. What does it mean for BDD to be a superset of TDD?
+	- It means that TDD naturally follows BDD. If you follow Behavior Driven Development, then it naturally flows into following Test Driven Development. 
+	They compliment each other significantly. TDD is a part of BDD. 
+	
 4. How do we approach development of a feature for an application when utilizing BDD?
+	- First, we define what features of our application we should have, and how they should work, in plain english. 
+	- Then we follow the traditional steps of TDD, writing tests for these features/scenarios
+	- Lastly, we develope our application, focusing on developing the features set out, with the goal of passing all the tests we defined earlier. 
+	
 5. What are the benefits of BDD?
+	- Very easy to develope tests from the given scenarios
+	- Allows for easier understanding of what the application can/should do, for both technical and non-technical parties.
+	
 6. Cucumber is a BDD framework. What 3 types of files are important to write and execute tests with Cucumber?
+	- feature files
+	- glue code/testing methods
+	- testRunner
+	
 7. What is a feature file?
+	- This is a file that defines an intended feature of our application, as well as all possible scenarios related to its functionality
+	
 8. What is a glue code/step definition file?
+	- These are methods that are derived from our feature files. Extensions like Cucumber automatically generate gluecode that we can then
+	use to develope test steps to be used in E2E testing of our features. 
+	
 9. What is the purpose of the Test Runner class?
+	- This is a simple method/class that Junit can use to actually run all the test steps we've defined. 
+	
 10. What plugin do we need to install to Spring Tool Suite / Eclipse for running our feature files to generate the gluecode snippets?
+	- Cucumber
+	
 11. What english-like language does Cucumber use when we define the feature files?
+	- Gherkin 
+	
 12. What step keywords does Gherkin utilize for Scenarios?
+	- Feature: for the overall feature we intend (sorry, just read the question closer and it says "Step keywords" and not just "Keywords", but these
+	first two keywords are good to know anyways so I'm leaving them here)
+	- Scenario: for an individual scenario/case that we expect to encounter in the use of a feature. Can be a positive or negative case
+	- Given, When, And, But, Then: keywords used to define the conditions, the different individual steps taken in a scenario, 
+	and the expected result
+
 13. Write an example of a scenario using Given ... When ... Then (And and But can also be used) for the calculator app
+	- ```Scenario: Add
+			Given I am at the calculator app page
+			When I input 5 into the left number field
+			And I input 10 into the right number field
+			And I click the add button
+			Then I should see a result equal to 15
+			```
+			
 14. What types of parameterization does Cucumber support?
+	- Passing parameters inline 
+	- Passing parameters as a table
+	- Defining a scenario outline, which will run multiple times for each row of data within a table
+	
 15. What is inline parameterization?
+	- Passing an argument directly from within the scenario definition
+	
 16. What is table parameterization
+	- Defining the scenario, and then creating a table of variables and values afterwards
+
 17. What is scenario outline parameterization?
+	- Using a table, make the scenario run multiple times with different data
 
 </details> 
 
@@ -113,6 +203,7 @@
 <summary> Click to expand </summary> 
 
 1. What is the difference between Cucumber, Selenium, and JUnit 5? How would you describe each of these technologies? How do we use them together?
+	- Cucumber: 
 2. If we have only one feature file with 4 scenarios defined in it (scenario 1 has 5 steps, scenario 2 has 4 steps, scenario 3 has 4 steps, and scenario 4 has 3 steps), and then use our TestRunner file and run as JUnit test, how many tests does JUnit consider that as?
 3. Refer to the `add.feature` file [at this LINK HERE](https://github.com/211018jwa/training/blob/main/week-5/day-4/calculator-e2e-bdd-testing/src/test/java/com/revature/features/add.feature#L3-L25). Note how each of the 4 scenarios (test) has the same step, `Given I am at the calculator page`. Is there a single "step definition" in the gluecode file or multiple step definitions for this?
     - The question above is to get you thinking about the fact that you can re-use the same step in multiple scenarios in your feature files. But, the step definition/implementation itself (a method) will be a single one in the gluecode file. 
