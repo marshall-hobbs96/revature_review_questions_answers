@@ -94,16 +94,47 @@
 
 
 1. What is the syntax for declaring a variable of a particular type in TypeScript?
+	- let a: string;
+	- let b: any;
+	- let c: boolean;
+	- let d: number;
+	
 2. If we declare and assign some value to the variable on the same line without specifying the type explicitly of the variable, what type will that variable be? (Type inferencing)
+	- The type will be of the type of the thing we are assinging it to
+	- let a = "Hello";
+	- a will be of type string
+	
 3. If we declare a variable with the any type, what does any mean?
+	- It means it will behave just as a JavaScript variable, being able to be assigned any type
+	
 4. What would a function in TypeScript look like in terms of the parameters?
+	- (a: number, b: string)
+	
 5. How do you specify a return type for a TypeScript function?
+	- function(): number;
+	
 6. What return type should you specify if you create a function that doesn't return anything?
+	- function(): void;
+	
 7. What is the syntax declare a variable with the type being a string array?
+	- ```function(): string[];```
+	
+	
 8. What is the purpose of an interface in TypeScript?
-9. What is the shorthand syntax for a TypeScript class where we can define properties and have the constructor be able to assign values to those properties without needing to type everything out explicitly?
+	- Provide way to create custom types
+	
+9. What is the shorthand syntax for a TypeScript class where we can define properties and have the constructor be able to assign values to those properties 
+   without needing to type everything out explicitly?
+	- constructor(public width: number, public height: number){};
+
 10. What access modifiers does TypeScript have?
-11. If we need to declare a variable with a type being an object with a massive number of properties or complicated nested structures, especially if other variables will be using that same type, what is the best practice in creating a "type" for it?
+	- public: anyone can access outside of class
+	- private: Can only access from within class
+	- Protected: can access from within class or within subclasses
+	
+11. If we need to declare a variable with a type being an object with a massive number of properties or complicated nested structures, especially if other variables 
+    will be using that same type, what is the best practice in creating a "type" for it?
+	-	Be as neat as you can? Provide as much documentation as you can? This is a very generic question
 
 
 
@@ -119,23 +150,77 @@
 
 
 1. What types of one-way databinding are there?
+	- One-way databinding is the process of sending data from the .ts file to the .html file of a component, or vice versa
+	- String interpolation
+	- Property binding
+	- Event binding
+	
 2. What is the purpose of string interpolation, and what is the syntax?
+	- To pass information from the component class (.ts file) to the component template (html file)
+	- {{nameOfVariableOrFunction}}
+	
 3. What is the purpose of property binding, and what is the syntax?
+	- To pass information from the class (.ts) to an attribute of an element in the template (html file)
+	- <div [name] = "someVariableInTsFile"></div>
+	
 4. What is the purpose of event binding, and what is the syntax?
+	- Kinda like event handling, but we define the event in the template(html) and point it towards a function we would like to perform when that event
+	occurs in the class (ts) file
+	- (event) = "nameOfFunction($event)"
+	
 5. What lifecycle hooks are part of the component lifecycle?
+	- constructor: Sets initial properties of component
+	- ngOnChanges(): Called whenever an @input property is changed
+	- ngOnInit(): Called when component is first initialized. As opposed to the constructor, executes when the component is actually placed on the DOM
+	- ngDoCheck(): Called after ngOnChanges() and ngOnInit(). Used to implement custom actions for change detection 
+	- ngOnDestroy(): Called before angular destroys a component
+	
 6. What is the component lifecycle?
+	- Different steps a component goes though from when it is first created in the DOM to the time it is removed from the DOM
+	
 7. What type of HTML element is two-way databinding used with?
+	- Input elements
+	
 8. How does two-way databinding help to simplify the process of coupling the value of input elements with a variable in the component class?
+	- Eliminates the need to do both string interpolations and event binding 
+	
 9. What is the syntax for two-way databinding?
+	- ```[(ngModel)] = "inputValue" ```
+	
 10. What is the process to set up two way databinding? 
+	- Import FormsModule into module ts file
+	- add FormsModules to the imports property of @NgModule decorator
+	
 11. What two types of directives are there?
+	- Structural directives: used to manipulate the structor of the page itself
+	- Attribute directives: used to change the attributes of elements
+	
 12. What are the 3 structural directives?
+	- ngIf: Toggle the displaying of element in the DOM based on boolean expression
+	- ngFor: Used to repear part of the html template for each item in an array
+	- ngSwitch: similar to switch statements, but is used to selectively display certain elements based on certain cases being met
+	
 13. What is the purpose of *ngIf?
+	- To toggle the displaying of elements in the DOM
+	
 14. What goes in the quotation marks for *ngIf=""?
+	- The condition you want to test for
+	
 15. What is the purpose of *ngFor? What does the syntax look like?
+	- Used to repear part of the html template for each item in an array
+	-  ```*ngFor="let pokemon of pokemonData"```
+	
 16. What is the purpose of *ngSwitch and what is its syntax?
+	- similar to switch statements, but is used to selectively display certain elements based on certain cases being met
+	- ```  *ngSwitchCase="'pending'" ```
+	
 17. What are the 2 attribute directives?
+	- ngClass
+	- ngStyle
+	
 18. What is the purpose of each of the 2 attribute directives?
+	- To change the class of an element
+	- To change the various css properties of an element 
 
 
 
