@@ -6,25 +6,79 @@
 
 
 1. What JavaScript engine does Chrome use for executing JS in the browser?
+	- V8
+	
 2. How can we run JS outside of the browser?
+	- By utilizing Node.js
+	
 3. What is Node.js? What is the primary reason we need Node.js when developing Angualar applications?
+	- Node.js is a runetime enviroment for JavaScript that is outside the browser. We primarily use it when developing Angular applications
+	because it provides many tool for developing and running Angular projects
+	
 4. What is npm?
+	- Node Package Manager. Provides a way to import project and developer dependencies
+	- Analogous to Maven in Java
+	
 5. What is the importance of the package.json file?
+	- A list of dependencies related to our Angular project. Includes both project dependencies and developer dependencies
+	- Analogous to the pom.xml file in Maven projects
+	
 6. What is the scripts property in the package.json file?
+	- Contain a list of scripts you can run using npm run <script name>
+	
 7. What command do we use to run an individual script?
+	- npm run <script name> 
+	
 8. What is the difference between dependencies and devDependencies?
+	- Dependencies are dependencies that the project requires to run. 
+	- DevDependencies are dependencies that we are required to have to develop the application
+	
 9. What is Angular CLI used for?
+	- Used for running various node commands, such as ng, which allows us to generate new things, such as new Angular projects or components for our Angular project
+	
 10. What does CLI stand for?
+	- Command Line Interface
+	
 11. How do we install Angular CLI?
+	- npm install -g @angular/cli
+	
 12. How do we create a new Angular project using Angular CLI?
+	- ng new <project name> 
+	
 13. What is the purpose of the node_modules folder inside an Angular project or any node project?
+	- Contains all the dependencies that an Angular project requires
+	
 14. Should the node_modules folder be pushed to Github? Why or why not?
+	- No. Because it can be rather large. Also the package.json contains a list of all dependencies required, so if anyone needs to use or develop the application, they can
+	just download all the dependencies themselves based off that package.json file
+	
 15. If another developer wants to collaborate, they need to clone the repository with the project. What command do they need to run to ensure that all necessary dependencies are installed to their local copy of the project?
+	- npm install
+	
 16. Describe the startup/bootstrap process for an Angular application whenever it is first ran on the computer
+	- Whenever an Angular SPA is loaded, it runs code in the main.ts file, and loads up the AppModule which loads up the AppComponent into the DOM
+	
 17. What files make up a component? Describe the purpose of these 3 files
+	- <name>.component.html
+		* For containing all the html for our component
+	- <name>.component.css
+		* For containing all of the css for our component
+	- <name>.component.ts
+		* Contains all our programming logic for our component
+	- <name>.component.spec.ts
+		* Contains unit tests for our component.ts file
+		
 18. What file is the @Component decorator located inside of and what 3 important properties does it have?
+	- <name>.component.ts
+	- Selector, which denotes which tag you should use to display this component
+	- templateUrl, which points to the .html file to use with this component
+	- stylesUrls, which contains a list of all the css files to use with this component
+	
 19. Which of the 3 @Component properties is useful for helping us figure out what tag we need to use to display a component within another component?
+	- Selector
+
 20. What is the parent-most component in an Angular app?
+	- app.component 
 
 
 </details> 
