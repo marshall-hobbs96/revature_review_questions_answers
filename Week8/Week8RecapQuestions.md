@@ -236,11 +236,25 @@
 
 
 1. What is a pipe?
+	- an angular thing that takes input and transforms it into an output
+	
 2. What are some examples of built-in Angular pipes?
+	- currency
+	- date
+	
 3. What is the purpose of a pipe?
+	- To transform input into a different output
+	
 4. What 2 decorators are used to facilitate component to component communication?
+	- @Input
+	- @Output
+	
 5. Is @Input used to pass data from a parent component to child component, or is it child component to parent component?
+	- Passing data from parent to child
+	
 6. Is @Output used to pass data from a parent component to child component, or is it child component to parent component?
+	- Pass data from child to parent
+	
 7. Is @Input associated with property binding or event binding?
 8. Is @Output associated with property binding or event binding?
 9. How do you create a service using Angular CLI?
