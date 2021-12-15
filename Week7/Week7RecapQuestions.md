@@ -233,9 +233,21 @@
 
 
 1. What is responsive design? How does it help us accommodate different types of devices users may be using?
+	- Responsive design is the concept that frontend applications should be flexible to different user's devices. So if a user switches from desktop to a mobile device
+	they should have a very similar experience. It shouldn't break the functionality or result in a messed up UI
+	
 2. What is a media query?
+	- A media query is a special css annotation that allows for setting different css properties to the same html elements depending on what kind of device the user has. 
+	
 3. What is the syntax for media queries?
-
+	- ```
+		@media(max-width: 700px) {
+		
+			traditional css stuff
+			
+		}
+		```
+	
 
 
 </details> 
@@ -250,9 +262,18 @@
 
 
 1. What is the Singleton design pattern?
+	- The singleton design pattern is a design pattern for classes that stipulates that classes should only have a single instance of that class at a time. 
+	- Useful for things like connections, logging, things that really shouldn't have multiple of at once
+	
 2. How would you create a class that follows the Singleton design pattern?
+	- Have a property of a type that is itself, and have a method that returns that instance. If that instance hasnt been instantiated yet, then create it
+	
 3. What is the Factory design pattern?
+	- The factory design pattern is a design pattern that passes the responsibility of creating new objects to a method
+	- Typically used for managing several different implementations of an interface 
+	
 4. How would you implement the factory design pattern?
+	- Create a class with a method that returns different objects of different implementations of an interface based on what arguments you pass into the method 
 
 
 
@@ -268,13 +289,29 @@
 
 
 1. What is a functional interface?
+	- A functional interface is an interface that includes only one abstract method
+	
 2. What are functional interfaces typically used to create?
+	- Typically used for implementing lambda functions
+	
 3. What are lambdas?
+	- Lambdas are functions that are defined and return in the same place. Very similar to arrow functions in javascript. You define it, and it returns the result immediately where you defined it.
+	
 4. What method do we need to implement within a class that implements the Comparable interface?
+	- compareTo
+	
 5. When this method returns 0, what does it mean?
+	- It means that the two objects being compared are the same
+	
 6. When this method returns a negative number, what does it mean?
+	- It means that the current object (this one => object1.compareTo(object2)) is "less than" the object its comparing to. This means it should go before object2 in an ordered list
+	
 7. When this method returns a positive number, what does it mean?
+	- The opposite as above. It means that object1 is more than object2, which means it should go after object2 in an ordered list
+	
 8. What is the purpose of the Comparator interface?
+	- To defined alternative ways to order objects of a certain type. For example, the comparable interface defines the natural ordering of objects of a class, but if we want to order
+	them in different ways, we can implement the comparable interface. 
 
 
 </details> 
@@ -289,11 +326,27 @@
 
 
 1. What is a closure?
+	- A closure it the combination of a function with its lexical enviroment. It essentially allows the persisting of varibales within a function from outside the function. 
+	
 2. What is the purpose of call, apply, and bind?
+	- Call allows us to borrow a method from another object without specify a new property in our object
+	- Apply is same as call, but uses a single array of parameteres instead of varargs
+	- Bind allows you to permanently associate a call line to a new variable
+	
 3. What 3 ways are there to construct an object?
+	- Object literals
+	- Function constructors
+	- ES6 classes
+	
 4. What is prototypal inheritance?
+	- Allows you to add additional properties to function constructors that objects instantiated from it will inherit
+	
 5. When an object is created using a function constructor, what property that belongs to the function constructor does the object inherit from?
+	- prototype 
+	
 6. How do we use __proto__ to make an object inherit from another object?
+	- object.__proto__ = Class.prototype
+	- Even if object is not related to Class, object will inherit Class' prototype behaviors
 
 
 
@@ -309,36 +362,130 @@
 
 
 1. What is the software development lifecycle?
+	- A series of steps/states that an application goes through during its lifetime
+	
 2. What are the 7 phases of the software development lifecycle?
+	- Planning
+	- Analysis
+	- Design
+	- Development
+	- Testing
+	- Implementation
+	- Maintainence
+	
 3. What two competing philosophies do we have?
+	- Agile 
+	- Waterfall
+	
 4. What is waterfall and its characteristics?
-5. What are the pros and cons of waterfall?
-6. When might we use waterfall?
-7. What is Agile?
-8. What are the core values of Agile?
-9. What are the 12 principles of Agile?
-10. What are some examples of Agile frameworks/methodologies?
-11. What is Scrum?
-12. What is a Sprint?
-13. What are the Scrum artifacts?
-14. What is a product backlog?
-15. Who is in charge of managing the product backlog?
-16. What is the Sprint backlog?
-17. How is it decided what items/user stories are included in the Sprint backlog?
-18. What is a usable product increment?
-19. What are user stories?
-20. What is "Acceptance Criteria"?
-21. What is the "Definition of Done"?
-22. What is "Story Pointing"?
-23. What is a burndown chart?
-24. What Scrum roles are there?
-25. What is the role of a Scrum Master?
-26. What is the role of the product owner?
-27. How large should a Scrum team be?
-28. What Scrum ceremonies are there?
-29. What questions should be answered by each team member during the daily standup meeting?
-30. What is the difference between the Sprint Review and Sprint Retrospective meeting?
+	- Waterfall is going through each step in the SDLC before going to the next step, and never going back to a previous step
+	- Essentially, do everything "perfectly" to completition on each step, then move on to the next step
 
+5. What are the pros and cons of waterfall?
+	- Pros are that its easier to organize when dealing with large organizations/projects and when the project requirements likely won't change
+	- Cons are its not very flexible and bad for dynamic projects. Also not very good for projects that require small, iterative deliverables
+	
+6. When might we use waterfall?
+	- If we were working on a large project with very clear, restricted, inelastic requirments, such as government projects or projects in highly regulated industries
+	
+7. What is Agile?
+	- Agile is a philosophy for going through the SDLC that essentially says we should go through the SDLC for small parts of a project over and over again. This way we can complete
+	small features of a project and deliver it piece by piece, eventually working up to delivering the full application
+	
+8. What are the core values of Agile?
+	- Individuals and interactions over processes and tools
+	- Working software over comprehensive documentation
+	- Customer collaboration over contract negotation
+	- Responding to change over following a plan
+	
+9. What are the 12 principles of Agile? (Im just going to straight up copy paste this. I doubt anyone is going to ask us to remember any of these off the top of our head) 
+	- Our highest priority is to satisfy the customer through early and continuous delivery of valuable software.
+	- Welcome changing requirements, even late in development. Agile processes harness change for the customer’s competitive advantage.
+	- Deliver working software frequently, from a couple of weeks to a couple of months, with a preference to the shorter timescale.
+	- Business people and developers must work together daily throughout the project.
+	- Build projects around motivated individuals. Give them the environment and support they need, and trust them to get the job done.
+	- The most efficient and effective method of conveying information to and within a development team is face-to-face conversation.
+	- Working software is the primary measure of progress.
+	- Agile processes promote sustainable development. The sponsors, developers, and users should be able to maintain a constant pace indefinitely.
+	- Continuous attention to technical excellence and good design enhances agility.
+	- Simplicity–the art of maximizing the amount of work not done–is essential. 
+	- The best architectures, requirements, and designs emerge from self-organizing teams.
+	- At regular intervals, the team reflects on how to become more effective, then tunes and adjusts its behavior accordingly.
+
+10. What are some examples of Agile frameworks/methodologies?
+	- Scrum
+	- Kanban
+
+11. What is Scrum?
+	- Scrum is an agile framework/methodology
+	
+12. What is a Sprint?
+	- A sprint is essentially a self contained iteration of the SDLC for a set of features that are a part of the the overall application
+	- Usually takes anywhere between 1 to 2 weeks
+	
+13. What are the Scrum artifacts?
+	- Documentation relating to a sprint
+	
+14. What is a product backlog?
+	- The product backlog is a comprehensive list of features/tasks related to the overall application. Essentially a giant to-do list for the project
+	
+15. Who is in charge of managing the product backlog?
+	- The product owner (not actually the end-client of the application you are developing, but likely a product manager. Just someone in charge of the overall project)
+	
+16. What is the Sprint backlog?
+	- A list of features/tasks that need to be completed for the current sprint. Items not completed on this during the current sprint will roll over into the next sprint
+	
+17. How is it decided what items/user stories are included in the Sprint backlog?
+	- Decided upon by the team of developers
+	
+18. What is a usable product increment?
+	- The actual product developed at the end of a sprint. It must potentially be deliverable to the end user
+	
+19. What are user stories?
+	- User stories are features to be developed, written from the perspective of the end user
+	
+20. What is "Acceptance Criteria"?
+	- Acceptance criteria is criteria that defines what it means for a userstory/feature to be acceptable
+	
+21. What is the "Definition of Done"?
+	- Defined by the scrum team. It defines when a features is considered done
+	
+22. What is "Story Pointing"?
+	- A way of assigning a difficulty to a task. Helps in managing time. Essentially a made up point system that the scrum team agrees on 
+	
+23. What is a burndown chart?
+	- A burndown chart is a chart that tracks how many tasks/story points are remaining on the y axis and how much time has passed on the x axis
+	- Just a team tool for tracking progress
+	
+24. What Scrum roles are there?
+	- Scrum master
+	- product owner
+	- team member
+	
+25. What is the role of a Scrum Master?
+	- To be responsible to ensuring that the scrum development process is being followed
+	- Leading any team meetings
+	
+26. What is the role of the product owner?
+	- To determine what should be on the product backlog 
+	
+27. How large should a Scrum team be?
+	- 10 or fewer people 
+	
+28. What Scrum ceremonies are there?
+	- Sprint planning meeting
+	- Daily standup meeting
+	- Sprint review meeting
+	- Sprint retrospective
+	
+29. What questions should be answered by each team member during the daily standup meeting?
+	- What they got done yesterday
+	- What they plan on getting done today
+	- Any blockers? 
+	
+30. What is the difference between the Sprint Review and Sprint Retrospective meeting?
+	- Sprint review is for discussing what was accomplished in the last sprint and what the team hopes to accomplish for the next sprint
+	- Sprint retrospective is for discussing what improvements could be made as a team based on the performance of the last sprint
 
 
 </details> 
