@@ -158,16 +158,60 @@
 
 # SDLC
 1. What is the SDLC?
+	- This is the Software Development Life Cycle. It is an ubiquitous outline of how software development should progress. 
+	
 2. What are the 7 phases of the SDLC?
+	- Off the top of my head: Analysis, Planning, Development, Testing, Deployment, Maintenance 
+	- Actual: Requirements, Analysis, Design, Development, Testing, Deployment, Maintenance 
+	
 3. Agile v. Waterfall?
+	- Agile and Waterfall are both development philosophies for traversing the SDLC.
+	- Waterfall advocates for going through each step in its entirety before moving onto the next step. No going back to previous steps. Deliver the entire project at once. 
+	- Agile advocates for going throught he SDLC several times throughout the lifetime of a project, delivering small, functional bits of the overall project in consistent time periods. 
+	
 4. 4 Core values of Agile?
+	- Off the top of my head: People over technologies, relationships over project mandates
+	- Actual: Individuals and interactions over processes and tools, working software over comprehensive documentation, 
+		Customer collaboration over contract negotiation, respoding to change over following a plan
+		
 5. Examples of Agile frameworks/methodologies?
+	- Scrum is the big one
+	- Kanban 
+	- Xtreme programming
+	
 6. Explain Scrum in detail
+	- Scrum is an implementation of the agile design philosophy....which in turn is a philosophy on the SDLC framework 
+	- Includes several 'artifacts' to help guide development
+		* Product backlog: a living document that includes all features intended to be developed within a project. Managed by the product owner
+		* Sprint backlog: A semi living document that includes all features intended to be developed with a project FOR THE CURRENT SPRINT. Managed by the actual sprint development team/scrum master,
+		with input from the product owner
+		* Potentially releasable product increment: The result at the end of a sprint. Includes all the features that the development team worked on during the duration of the sprint that also
+		matches the team definition of done. Represents the culmination of the Scrum/Agile design process. 
+	- Includes several 'ceremonies' to help aid development 
+		* Sprint planning meeting: Where the development team/scrum master/product owner discuss what features in the product backlog will be worked on during an upcoming sprint, as well as finer
+		details about how the sprint will progress, who will work on what, etc. 
+		* Daily Scrum: A daily, short meeting where everyone on the development team states what they worked on yesterday, what they plan on working on today, and what blockers/obstacles they may have
+		* Sprint Review: A meeting at the end of a sprint where what was accomplished during the sprint is discussed, as well at the state of the potentially releasable product increment
+		* Sprint Retrospective: A meeting after the sprint review, where the sprint and development process itself is reflected upon, so that improvements in the development process can be made
+		
 7. What is a Sprint?
+	- A sprint is a block of time dedicated to the development of several features within a larger product. The idea is to traverse the majority of the SDLC for a small, specific subset
+	of features within the larger product, so that these features can potentially be released before other parts of the product are done. In this way, the overall product is developed and potentially
+	released in small, iterative pieces. 
+	
 8. What are the Scrum artifacts?
+	- Product backlog, sprint backlog, potentially releasable product increment. 
+	
 9. What is a user story?
+	- A user story is literally a story from the perspective of the user detailing how they would interact with a feature. For example, 'as a user, I want to be able to login using my username and password' 
+	- Really, just a different/supplemental way to describe a feature
+	
 10. What is the product backlog? Who is in charge of managing the product backlog?
+	- A living document that includes all features intended to be developed within a project. Managed by the product owner
+	
 11. What is the Sprint backlog? The user stories included in the Sprint backlog are decided in what Scrum meeting?
+	- A semi living document that includes all features intended to be developed with a project FOR THE CURRENT SPRINT. Managed by the actual sprint development team/scrum master,
+		with input from the product owner
 12. What are acceptance criteria for a user story? How is this related to drafting test cases?
 13. What Scrum roles are there?
 14. Responsibilities of the Product Owner?
